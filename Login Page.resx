@@ -1,0 +1,99 @@
+﻿using Microsoft.VisualBasic.Logging;
+using Mysqlx.Expr;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Bisnar_AnthonyJohn_FinalExam
+{
+    public partial class Login_Page : Form
+    {
+        public Login_Page()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginbtn_Click(object sender, EventArgs e)
+        {
+
+            string username = usertxt.Text.Trim();
+            string password = passtxt.Text.Trim();
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Please enter username and password.");
+                return;
+            }
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+                string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
+
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd.Dispose();
+
+                if (count == 1)
+                {
+                    MessageBox.Show("Login Successful!");
+
+                    new StudentList().Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        private void here_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new RegisterStudent().Show();
+            this.Hide();
+        }
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
