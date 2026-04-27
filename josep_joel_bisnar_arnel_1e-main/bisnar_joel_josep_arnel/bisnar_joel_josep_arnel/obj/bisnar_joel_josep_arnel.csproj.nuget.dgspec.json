@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\InformationTechnolog\\Desktop\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj": {}
+    "C:\\Users\\CL3-PC05\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\InformationTechnolog\\Desktop\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj": {
+    "C:\\Users\\CL3-PC05\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\InformationTechnolog\\Desktop\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj",
+        "projectUniqueName": "C:\\Users\\CL3-PC05\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj",
         "projectName": "bisnar_joel_josep_arnel",
-        "projectPath": "C:\\Users\\InformationTechnolog\\Desktop\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj",
-        "packagesPath": "C:\\Users\\InformationTechnolog\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\InformationTechnolog\\Desktop\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\obj\\",
+        "projectPath": "C:\\Users\\CL3-PC05\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj",
+        "packagesPath": "C:\\Users\\CL3-PC05\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CL3-PC05\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\InformationTechnolog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CL3-PC05\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -75,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,13 +9,24 @@ namespace bisnar_joel_josep_arnel
         {
             InitializeComponent();
             txtpass.UseSystemPasswordChar = true;
+            panel1.BackColor = Color.FromArgb(120, 0, 0, 0);
+            panel2.BackColor = Color.FromArgb(120, 0, 0, 0);
+            lblstore.BackColor = Color.Transparent;
+            lblacc.BackColor = Color.Transparent;
+            lblget.BackColor = Color.Transparent;
+            pb1.BackColor = Color.Transparent;
+            pb2.BackColor = Color.Transparent;
+            chkpass.BackColor = Color.Transparent;
+            lblname.BackColor = Color.Transparent;
+            lblpass.BackColor = Color.Transparent;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string username = txtuser.Text.Trim();
@@ -26,7 +37,7 @@ namespace bisnar_joel_josep_arnel
                 MessageBox.Show("Please enter username and password.");
                 return;
             }
-
+            
             DBConnect db = new DBConnect();
             try
             {
@@ -45,16 +56,10 @@ namespace bisnar_joel_josep_arnel
                     if (role == "admin")
                     {
                         MessageBox.Show("Welcome admin.");
-                        studentlist dashboard = new studentlist();
-                        dashboard.Show();
-                        this.Hide();
                     }
                     else if (role == "student")
                     {
                         MessageBox.Show("Welcome User.");
-                        studentlistSTUDENT dashboard = new studentlistSTUDENT();
-                        dashboard.Show();
-                        this.Hide();
                     }
                 }
                 else
@@ -84,11 +89,8 @@ namespace bisnar_joel_josep_arnel
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            studReg dashboard = new studReg();
-            dashboard.Show();
-            this.Hide();
-        }
 
+        }
         private void txtuser_TextChanged(object sender, EventArgs e)
         {
 
@@ -101,7 +103,7 @@ namespace bisnar_joel_josep_arnel
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (chkpass.Checked)
             {
                 txtpass.UseSystemPasswordChar = false;
             }
@@ -109,6 +111,20 @@ namespace bisnar_joel_josep_arnel
             {
                 txtpass.UseSystemPasswordChar = true;
             }
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
