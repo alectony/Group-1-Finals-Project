@@ -107,8 +107,6 @@ namespace bisnar_joel_josep_arnel
             }
             else if (choice == 1)
             {
-                
-
                 passkey page = new passkey();
                 page.Show();
                 this.Close();

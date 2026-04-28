@@ -10,5 +10,11 @@
     <Compile Update="RegAcc.cs">
       <SubType>Form</SubType>
     </Compile>
+
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="form1.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
