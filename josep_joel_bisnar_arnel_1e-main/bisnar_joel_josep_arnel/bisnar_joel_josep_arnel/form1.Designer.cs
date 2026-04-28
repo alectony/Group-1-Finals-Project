@@ -44,7 +44,6 @@
             txtuser = new TextBox();
             txtpass = new TextBox();
             panel2 = new Panel();
-            label3 = new Label();
             label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb3).BeginInit();
@@ -87,6 +86,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(389, 515);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // pb3
             // 
@@ -136,7 +136,7 @@
             // 
             lblpass.AutoSize = true;
             lblpass.Font = new Font("Segoe UI Variable Display Semib", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpass.ForeColor = Color.Black;
+            lblpass.ForeColor = Color.Transparent;
             lblpass.Location = new Point(84, 182);
             lblpass.Name = "lblpass";
             lblpass.Size = new Size(78, 21);
@@ -165,12 +165,13 @@
             button3.TabIndex = 6;
             button3.Text = "CLEAR";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // lblname
             // 
             lblname.AutoSize = true;
             lblname.Font = new Font("Segoe UI Variable Display Semib", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblname.ForeColor = Color.Black;
+            lblname.ForeColor = Color.White;
             lblname.Location = new Point(84, 107);
             lblname.Name = "lblname";
             lblname.Size = new Size(83, 21);
@@ -215,35 +216,22 @@
             // txtpass
             // 
             txtpass.BackColor = Color.White;
-            txtpass.BorderStyle = BorderStyle.None;
+            txtpass.BorderStyle = BorderStyle.FixedSingle;
             txtpass.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtpass.Location = new Point(88, 209);
             txtpass.Name = "txtpass";
-            txtpass.Size = new Size(269, 28);
+            txtpass.Size = new Size(269, 35);
             txtpass.TabIndex = 1;
             txtpass.TextChanged += txtpass_TextChanged;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveBorder;
-            panel2.Controls.Add(label3);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(12, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(389, 100);
             panel2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(72, 62);
-            label3.Name = "label3";
-            label3.Size = new Size(244, 21);
-            label3.TabIndex = 3;
-            label3.Text = "POS * INVENTORY * EMPLOYEE";
             // 
             // label1
             // 
@@ -296,7 +284,6 @@
         private PictureBox pb1;
         private PictureBox pb2;
         private CheckBox chkpass;
-        private Label label3;
         private Label label1;
         private PictureBox pb3;
     }
