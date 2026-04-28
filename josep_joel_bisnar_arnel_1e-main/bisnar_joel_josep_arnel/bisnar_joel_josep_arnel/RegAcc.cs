@@ -85,15 +85,17 @@ namespace bisnar_joel_josep_arnel
                 {
                     db.Open();
                     string query = "INSERT INTO user_info (first_name, last_name, address) VALUES (@first_name, @last_name, @address)";
-                    string query1 = "INSERT INTO clients(user_name, password, role)VALUES('@user_name','@password','@role')";
+                    string query1 = "INSERT INTO clients(user_name, password, role)VALUES(@user_name,@password,@role)";
                     Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(query, db.Connection);
+                    Npgsql.NpgsqlCommand cmd3 = new Npgsql.NpgsqlCommand(query1, db.Connection);
                     cmd.Parameters.AddWithValue("@first_name", first_name);
                     cmd.Parameters.AddWithValue("@last_name", last_name);
                     cmd.Parameters.AddWithValue("@address", address);
-                    cmd.Parameters.AddWithValue("@user_name", user_name);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@role", choice);
+                    cmd3.Parameters.AddWithValue("@user_name", user_name);
+                    cmd3.Parameters.AddWithValue("@password", password);
+                    cmd3.Parameters.AddWithValue("@role", choice);
                     cmd.ExecuteNonQuery();
+                    cmd3.ExecuteNonQuery();
                     MessageBox.Show("Student added successfully!");
                 }
                 catch (Exception ex)
@@ -107,7 +109,7 @@ namespace bisnar_joel_josep_arnel
             }
             else if (choice == 1)
             {
-                passkey page = new passkey();
+                passkey page = new passkey(first_name, last_name, address, user_name, password, confirmpass);
                 page.Show();
                 this.Close();
             }

@@ -136,7 +136,7 @@
             // 
             lblpass.AutoSize = true;
             lblpass.Font = new Font("Segoe UI Variable Display Semib", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpass.ForeColor = Color.Black;
+            lblpass.ForeColor = Color.Transparent;
             lblpass.Location = new Point(84, 182);
             lblpass.Name = "lblpass";
             lblpass.Size = new Size(78, 21);
@@ -170,7 +170,7 @@
             // 
             lblname.AutoSize = true;
             lblname.Font = new Font("Segoe UI Variable Display Semib", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblname.ForeColor = Color.Black;
+            lblname.ForeColor = Color.White;
             lblname.Location = new Point(84, 107);
             lblname.Name = "lblname";
             lblname.Size = new Size(83, 21);
@@ -215,11 +215,11 @@
             // txtpass
             // 
             txtpass.BackColor = Color.White;
-            txtpass.BorderStyle = BorderStyle.None;
+            txtpass.BorderStyle = BorderStyle.FixedSingle;
             txtpass.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtpass.Location = new Point(88, 209);
             txtpass.Name = "txtpass";
-            txtpass.Size = new Size(269, 28);
+            txtpass.Size = new Size(269, 35);
             txtpass.TabIndex = 1;
             txtpass.TextChanged += txtpass_TextChanged;
             // 

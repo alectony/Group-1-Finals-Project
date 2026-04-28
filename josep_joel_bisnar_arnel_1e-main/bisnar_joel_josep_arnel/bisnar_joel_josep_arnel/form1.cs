@@ -10,6 +10,17 @@ namespace bisnar_joel_josep_arnel
             InitializeComponent();
             txtpass.UseSystemPasswordChar = true;
             pb2.Hide();
+            panel1.BackColor = Color.FromArgb(100, 13, 10, 38);
+            panel2.BackColor = Color.FromArgb(100, 13, 10, 38);
+            lblacc.BackColor = Color.Transparent;
+            lblget.BackColor = Color.Transparent;
+            lblpass.BackColor = Color.Transparent;
+            lblname.BackColor = Color.Transparent;
+            pb1.BackColor = Color.Transparent;
+            pb2.BackColor = Color.Transparent;
+            pb3.BackColor = Color.Transparent;
+            chkpass.BackColor = Color.Transparent;
+            lnkCreate.BackColor = Color.Transparent;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -42,13 +53,13 @@ namespace bisnar_joel_josep_arnel
 
                 if (result != null)
                 {
-                    string role = result.ToString();
-                    if (role == "admin")
+                    int role = int.Parse(result.ToString());
+                    if (role == 1)
                     {
                         MessageBox.Show("Welcome admin.");
 
                     }
-                    else if (role == "student")
+                    else if (role == 0)
                     {
                         MessageBox.Show("Welcome User.");
 
@@ -81,7 +92,9 @@ namespace bisnar_joel_josep_arnel
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            RegAcc page = new RegAcc();
+            page.Show();
+            this.Hide();
         }
         private void txtuser_TextChanged(object sender, EventArgs e)
         {

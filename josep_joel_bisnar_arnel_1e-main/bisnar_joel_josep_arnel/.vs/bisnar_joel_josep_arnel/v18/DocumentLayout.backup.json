@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\passkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\regacc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|c:\\users\\rexce\\source\\repos\\alectony\\group-1-finals-project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3BD73CF-7B5B-4350-9793-1C6E806F5701}|bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel.csproj|solutionrelative:bisnar_joel_josep_arnel\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "form1.cs",
               "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\form1.cs",
               "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs",
               "RelativeToolTip": "bisnar_joel_josep_arnel\\form1.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-27T02:05:35.555Z",
               "IsPinned": true,
@@ -60,39 +56,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.Designer.cs",
-              "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\form1.Designer.cs",
-              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.Designer.cs*",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\form1.Designer.cs*",
-              "ViewState": "AgIAAPIAAAAAAAAAAAAtwA8BAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs",
+              "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\form1.cs",
+              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs [Design]",
+              "RelativeToolTip": "bisnar_joel_josep_arnel\\form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:09:12.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T18:30:05.598Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "RegAcc.cs",
               "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\RegAcc.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\RegAcc.cs",
               "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\RegAcc.cs",
               "RelativeToolTip": "bisnar_joel_josep_arnel\\RegAcc.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAuwIAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAtwHEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T09:34:05.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "passkey.cs",
               "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\passkey.cs",
-              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\passkey.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAnwLUAAAAjAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs*",
+              "RelativeToolTip": "bisnar_joel_josep_arnel\\passkey.cs*",
+              "ViewState": "AgIAALAAAAAAAAAAAAAuwNsAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T12:48:11.424Z",
               "EditorCaption": ""
@@ -107,41 +102,32 @@
               "RelativeToolTip": "bisnar_joel_josep_arnel\\DBConnect.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T11:19:47.828Z"
+              "WhenOpened": "2026-04-28T11:19:47.828Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs",
-              "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\form1.cs",
-              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\form1.cs [Design]",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T18:30:05.598Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "RegAcc.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\RegAcc.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\RegAcc.cs",
               "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\RegAcc.cs [Design]",
               "RelativeToolTip": "bisnar_joel_josep_arnel\\RegAcc.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T12:38:28.211Z"
+              "WhenOpened": "2026-04-28T12:38:28.211Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "passkey.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\passkey.cs",
-              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs [Design]",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\passkey.cs [Design]",
+              "ToolTip": "C:\\Users\\rexce\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\passkey.cs [Design]*",
+              "RelativeToolTip": "bisnar_joel_josep_arnel\\passkey.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T11:20:34.343Z"
+              "WhenOpened": "2026-04-28T11:20:34.343Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

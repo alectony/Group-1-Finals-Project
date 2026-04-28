@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,25 +15,24 @@ namespace bisnar_joel_josep_arnel
     public partial class passkey : Form
     {
         private string firstname, lastname, address, username, password, confirmpass;
-
-        public passkey(string firstname, string lastname, string address,
-                 string username, string password, string confirmpass)
-        {
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.address = address;
-            this.username = username;
-            this.password = password;
-            this.confirmpass = confirmpass;
-        }
+        private int attemptsLeft = 3;
         public static class globalData
         {
             public static string passkey = "";
+
         }
 
-        public passkey()
+        public passkey(string first_name, string last_name, string address, string user_name, string password, string confirmpass)
+
+           
         {
             InitializeComponent();
+            this.firstname = first_name;
+            this.lastname = last_name;
+            this.address = address;
+            this.username = user_name;
+            this.password = password;
+            this.confirmpass = confirmpass;
             textBox1.UseSystemPasswordChar = true;
             textBox1.ReadOnly = true;
             textBox1.MaxLength = 8;
@@ -165,35 +165,66 @@ namespace bisnar_joel_josep_arnel
             string key = textBox1.Text.Trim();
             int role = 1;
             DBConnect db = new DBConnect();
-            if (key == "")
+
+            if (string.IsNullOrEmpty(key))
             {
-                MessageBox.Show("Please enter username and password.");
-                return; 
+                MessageBox.Show("Please enter the passkey.");
+                return;
             }
+
             try
             {
-                db.Open(); 
-                string query = "SELECT passkey FROM clients WHERE passkey = @key";
+                db.Open();
+                string query = "SELECT passkey FROM clients WHERE passkey = @key LIMIT 1";
                 Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@key", key);
-                string passkey = cmd.ExecuteScalar()?.ToString();
-                cmd.Dispose(); 
+                string dbPasskey = cmd.ExecuteScalar()?.ToString();
 
-                if (key == passkey)
+                if (key == dbPasskey)
                 {
-                    MessageBox.Show("Registered Successful!");
-                    form1 dashboard = new form1();
-                    dashboard.Show();
+                    string query1 = "INSERT INTO user_info (first_name, last_name, address) VALUES (@first_name, @last_name, @address)";
+                    string query2 = "INSERT INTO clients (user_name, password, role) VALUES (@user_name, @password, @role)";
+
+                    using (Npgsql.NpgsqlCommand cmd1 = new Npgsql.NpgsqlCommand(query1, db.Connection))
+                    {
+                        cmd1.Parameters.AddWithValue("@first_name", (object)firstname ?? DBNull.Value);
+                        cmd1.Parameters.AddWithValue("@last_name", (object)lastname ?? DBNull.Value);
+                        cmd1.Parameters.AddWithValue("@address", (object)address ?? DBNull.Value);
+                        cmd1.ExecuteNonQuery();
+                    }
+
+                    using (Npgsql.NpgsqlCommand cmd2 = new Npgsql.NpgsqlCommand(query2, db.Connection))
+                    {
+                        cmd2.Parameters.AddWithValue("@user_name", (object)username ?? DBNull.Value);
+                        cmd2.Parameters.AddWithValue("@password", (object)password ?? DBNull.Value);
+                        cmd2.Parameters.AddWithValue("@role", role);
+                        cmd2.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Registered Successfully!");
+                    new form1().Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username or Password.");
+                    attemptsLeft--;
+                    label5.Text = attemptsLeft.ToString();
+
+                    if (attemptsLeft > 0)
+                    {
+                        MessageBox.Show($"{attemptsLeft} attempts remaining.");
+                        textBox1.Clear(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Too many failed attempts. Closing application.");
+                        Application.Exit();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
