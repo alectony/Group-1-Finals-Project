@@ -9,6 +9,7 @@ namespace bisnar_joel_josep_arnel
         {
             InitializeComponent();
             txtpass.UseSystemPasswordChar = true;
+            pb2.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -97,10 +98,15 @@ namespace bisnar_joel_josep_arnel
             if (chkpass.Checked)
             {
                 txtpass.UseSystemPasswordChar = false;
+                pb2.Show();
+                pb3.Hide();
             }
             else
             {
                 txtpass.UseSystemPasswordChar = true;
-            }}
+                pb3.Show();
+                pb2.Hide();
+            }
+        }
     }
 }
