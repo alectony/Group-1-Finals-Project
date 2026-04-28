@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+using Npgsql;
 using System.ComponentModel;
 
 namespace bisnar_joel_josep_arnel
@@ -9,6 +9,19 @@ namespace bisnar_joel_josep_arnel
         {
             InitializeComponent();
             txtpass.UseSystemPasswordChar = true;
+            panel1.BackColor = Color.FromArgb(100, 13, 10, 38);
+            panel2.BackColor = Color.FromArgb(100, 13, 10, 38);
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label3.BackColor = Color.Transparent;
+            label4.BackColor = Color.Transparent;
+            label5.BackColor = Color.Transparent;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox2.BackColor = Color.Transparent;
+            checkBox1.BackColor = Color.Transparent;
+            Login.BackColor = Color.Transparent;
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -33,7 +46,7 @@ namespace bisnar_joel_josep_arnel
                 db.Open();
                 string query = "SELECT role FROM clients WHERE user_name=@user_name AND password=@password";
 
-                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                NpgsqlCommand cmd = new NpgsqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@user_name", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
@@ -45,16 +58,12 @@ namespace bisnar_joel_josep_arnel
                     if (role == "admin")
                     {
                         MessageBox.Show("Welcome admin.");
-                        studentlist dashboard = new studentlist();
-                        dashboard.Show();
-                        this.Hide();
+
                     }
                     else if (role == "student")
                     {
                         MessageBox.Show("Welcome User.");
-                        studentlistSTUDENT dashboard = new studentlistSTUDENT();
-                        dashboard.Show();
-                        this.Hide();
+
                     }
                 }
                 else
@@ -84,8 +93,8 @@ namespace bisnar_joel_josep_arnel
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            studReg dashboard = new studReg();
-            dashboard.Show();
+            RegAcc open = new RegAcc();
+            open.Show();
             this.Hide();
         }
 
@@ -109,6 +118,21 @@ namespace bisnar_joel_josep_arnel
             {
                 txtpass.UseSystemPasswordChar = true;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
