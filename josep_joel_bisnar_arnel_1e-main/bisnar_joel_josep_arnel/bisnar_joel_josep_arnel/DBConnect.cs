@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
 
@@ -6,22 +6,22 @@ namespace bisnar_joel_josep_arnel
 {
     internal class DBConnect
     {
-        private NpgsqlConnection connection = new NpgsqlConnection(
-            "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=312526;"
+        private MySqlConnection connection = new MySqlConnection(
+            "server=sql12.freesqldatabase.com;user=sql12824893;database=sql12824893;port=3306;password=ZXvIJRcr88;"
         );
 
-        public NpgsqlConnection Connection => connection;
+        public MySqlConnection Connection => connection;
 
         public void Open()
         {
             try { if (connection.State != System.Data.ConnectionState.Open) connection.Open(); }
-            catch (Exception ex) { MessageBox.Show("Connection Error: " + ex.Message); }
+            catch (System.Exception ex) { MessageBox.Show("Connection Error: " + ex.Message); }
         }
 
         public void Close()
         {
             try { if (connection.State != System.Data.ConnectionState.Closed) connection.Close(); }
-            catch (Exception ex) { MessageBox.Show("Connection Error: " + ex.Message); }
+            catch (System.Exception ex) { MessageBox.Show("Connection Error: " + ex.Message); }
         }
     }
-}
+    }

@@ -1,4 +1,4 @@
-using Npgsql;
+using MySql.Data.MySqlClient;
 using System.ComponentModel;
 
 namespace bisnar_joel_josep_arnel
@@ -43,32 +43,41 @@ namespace bisnar_joel_josep_arnel
             try
             {
                 db.Open();
-                string query = "SELECT role FROM clients WHERE user_name=@user_name AND password=@password";
+                string query = "SELECT user_id, role FROM clients WHERE user_name=@user_name AND password=@password";
 
-                NpgsqlCommand cmd = new NpgsqlCommand(query, db.Connection);
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@user_name", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
-                object result = cmd.ExecuteScalar();
-
-                if (result != null)
+                MySqlDataReader result = cmd.ExecuteReader();
+                if (result.Read())
                 {
-                    int role = int.Parse(result.ToString());
+                    int userId = Convert.ToInt32(result["user_id"]);
+                    int role = Convert.ToInt32(result["role"]);
+
                     if (role == 1)
                     {
                         MessageBox.Show("Welcome admin.");
 
+                        User_Dashboard form = new User_Dashboard(userId);
+                        form.Show();
+                        this.Hide();
                     }
-                    else if (role == 0)
+                    else
                     {
                         MessageBox.Show("Welcome User.");
 
+                        User_Dashboard form = new User_Dashboard(userId);
+                        form.Show();
+                        this.Hide();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Invalid username or password.");
                 }
+
+                result.Close();
             }
             catch (Exception ex)
             {
@@ -78,7 +87,8 @@ namespace bisnar_joel_josep_arnel
             {
                 db.Close();
             }
-        }
+
+            }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

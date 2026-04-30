@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
+using MySql.Data.MySqlClient;
 
 namespace bisnar_joel_josep_arnel
 {
@@ -86,8 +87,8 @@ namespace bisnar_joel_josep_arnel
                     db.Open();
                     string query = "INSERT INTO user_info (first_name, last_name, address) VALUES (@first_name, @last_name, @address)";
                     string query1 = "INSERT INTO clients(user_name, password, role)VALUES(@user_name,@password,@role)";
-                    Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(query, db.Connection);
-                    Npgsql.NpgsqlCommand cmd3 = new Npgsql.NpgsqlCommand(query1, db.Connection);
+                    MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                    MySqlCommand cmd3 = new MySqlCommand(query1, db.Connection);
                     cmd.Parameters.AddWithValue("@first_name", first_name);
                     cmd.Parameters.AddWithValue("@last_name", last_name);
                     cmd.Parameters.AddWithValue("@address", address);

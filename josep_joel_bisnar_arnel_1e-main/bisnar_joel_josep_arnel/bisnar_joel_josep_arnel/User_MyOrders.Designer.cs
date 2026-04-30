@@ -1,0 +1,614 @@
+﻿namespace bisnar_joel_josep_arnel
+{
+    partial class User_MyOrders
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            lblpanel = new Panel();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            label2 = new Label();
+            linkLabel1 = new LinkLabel();
+            label1 = new Label();
+            panel3 = new Panel();
+            btnExit = new Button();
+            btnLogout = new Button();
+            panel2 = new Panel();
+            dataGridView1 = new DataGridView();
+            panel8 = new Panel();
+            btnsearch = new Button();
+            textBox1 = new TextBox();
+            btnCancelled = new Button();
+            btnCompleted = new Button();
+            btnPending = new Button();
+            btnAll = new Button();
+            panel7 = new Panel();
+            label4 = new Label();
+            panel6 = new Panel();
+            btnlifetime = new Button();
+            lblTotalspent = new Label();
+            label9 = new Label();
+            panel5 = new Panel();
+            btnInQueue = new Button();
+            lblPending = new Label();
+            label6 = new Label();
+            panel4 = new Panel();
+            btnActive = new Button();
+            lblOrder = new Label();
+            label7 = new Label();
+            panel1 = new Panel();
+            btnMyprofile = new Button();
+            btnProducts = new Button();
+            btnMyorders = new Button();
+            btnDashboard = new Button();
+            lblpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel8.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            panel4.SuspendLayout();
+            panel1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblpanel
+            // 
+            lblpanel.BackColor = Color.FromArgb(13, 10, 38);
+            lblpanel.Controls.Add(pictureBox1);
+            lblpanel.Controls.Add(label3);
+            lblpanel.Controls.Add(label2);
+            lblpanel.Controls.Add(linkLabel1);
+            lblpanel.Controls.Add(label1);
+            lblpanel.Dock = DockStyle.Top;
+            lblpanel.Location = new Point(0, 0);
+            lblpanel.Name = "lblpanel";
+            lblpanel.Size = new Size(860, 53);
+            lblpanel.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(720, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(45, 35);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(2091, 22);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Juan Cruz";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(2435, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 15);
+            label2.TabIndex = 2;
+            label2.Text = " Juan Cruz";
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            linkLabel1.ForeColor = Color.LightGray;
+            linkLabel1.LinkColor = Color.LightGray;
+            linkLabel1.Location = new Point(766, 17);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(91, 21);
+            linkLabel1.TabIndex = 1;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "User Portal";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Green;
+            label1.Location = new Point(12, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(113, 30);
+            label1.TabIndex = 0;
+            label1.Text = "Grab n Go";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(28, 28, 60);
+            panel3.Controls.Add(btnExit);
+            panel3.Controls.Add(btnLogout);
+            panel3.ForeColor = Color.FromArgb(28, 28, 60);
+            panel3.Location = new Point(-1, 290);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(208, 236);
+            panel3.TabIndex = 7;
+            // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.Transparent;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Segoe UI", 11F);
+            btnExit.ForeColor = Color.FromArgb(192, 0, 0);
+            btnExit.Location = new Point(0, 165);
+            btnExit.Name = "btnExit";
+            btnExit.Padding = new Padding(10, 0, 0, 0);
+            btnExit.Size = new Size(208, 30);
+            btnExit.TabIndex = 5;
+            btnExit.Text = "➜]Exit ";
+            btnExit.TextAlign = ContentAlignment.MiddleLeft;
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click_1;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Transparent;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 11F);
+            btnLogout.ForeColor = Color.FromArgb(192, 0, 0);
+            btnLogout.Location = new Point(0, 129);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Padding = new Padding(10, 0, 0, 0);
+            btnLogout.Size = new Size(208, 30);
+            btnLogout.TabIndex = 4;
+            btnLogout.Text = "➜]Logout";
+            btnLogout.TextAlign = ContentAlignment.MiddleLeft;
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click_1;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(232, 136, 39);
+            panel2.Controls.Add(dataGridView1);
+            panel2.Controls.Add(panel8);
+            panel2.Controls.Add(panel7);
+            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(panel5);
+            panel2.Controls.Add(panel4);
+            panel2.Location = new Point(207, 53);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(659, 461);
+            panel2.TabIndex = 6;
+            panel2.Paint += panel2_Paint;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 128, 0);
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(6, 216);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(644, 242);
+            dataGridView1.TabIndex = 18;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(15, 7, 43);
+            panel8.Controls.Add(btnsearch);
+            panel8.Controls.Add(textBox1);
+            panel8.Controls.Add(btnCancelled);
+            panel8.Controls.Add(btnCompleted);
+            panel8.Controls.Add(btnPending);
+            panel8.Controls.Add(btnAll);
+            panel8.Location = new Point(6, 153);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(644, 57);
+            panel8.TabIndex = 17;
+            // 
+            // btnsearch
+            // 
+            btnsearch.BackColor = Color.Transparent;
+            btnsearch.FlatStyle = FlatStyle.Flat;
+            btnsearch.ForeColor = Color.Green;
+            btnsearch.Location = new Point(560, 29);
+            btnsearch.Name = "btnsearch";
+            btnsearch.Size = new Size(75, 23);
+            btnsearch.TabIndex = 23;
+            btnsearch.Text = "Search";
+            btnsearch.UseVisualStyleBackColor = false;
+            btnsearch.Click += btnsearch_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(10, 30);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(544, 23);
+            textBox1.TabIndex = 22;
+            // 
+            // btnCancelled
+            // 
+            btnCancelled.BackColor = Color.Transparent;
+            btnCancelled.BackgroundImageLayout = ImageLayout.None;
+            btnCancelled.FlatStyle = FlatStyle.Flat;
+            btnCancelled.ForeColor = Color.Green;
+            btnCancelled.Location = new Point(229, 2);
+            btnCancelled.Name = "btnCancelled";
+            btnCancelled.Size = new Size(76, 23);
+            btnCancelled.TabIndex = 21;
+            btnCancelled.Text = "Cancelled";
+            btnCancelled.UseVisualStyleBackColor = false;
+            btnCancelled.Click += btnCancelled_Click;
+            // 
+            // btnCompleted
+            // 
+            btnCompleted.BackColor = Color.Transparent;
+            btnCompleted.BackgroundImageLayout = ImageLayout.None;
+            btnCompleted.FlatStyle = FlatStyle.Flat;
+            btnCompleted.ForeColor = Color.Green;
+            btnCompleted.Location = new Point(143, 2);
+            btnCompleted.Name = "btnCompleted";
+            btnCompleted.Size = new Size(80, 23);
+            btnCompleted.TabIndex = 20;
+            btnCompleted.Text = "Completed";
+            btnCompleted.UseVisualStyleBackColor = false;
+            btnCompleted.Click += btnCompleted_Click;
+            // 
+            // btnPending
+            // 
+            btnPending.BackColor = Color.Transparent;
+            btnPending.BackgroundImageLayout = ImageLayout.None;
+            btnPending.FlatStyle = FlatStyle.Flat;
+            btnPending.ForeColor = Color.Green;
+            btnPending.Location = new Point(65, 0);
+            btnPending.Name = "btnPending";
+            btnPending.Size = new Size(72, 28);
+            btnPending.TabIndex = 19;
+            btnPending.Text = "Pending";
+            btnPending.UseVisualStyleBackColor = false;
+            btnPending.Click += btnPending_Click;
+            // 
+            // btnAll
+            // 
+            btnAll.BackColor = Color.Transparent;
+            btnAll.BackgroundImageLayout = ImageLayout.None;
+            btnAll.FlatStyle = FlatStyle.Flat;
+            btnAll.ForeColor = Color.Green;
+            btnAll.Location = new Point(10, 2);
+            btnAll.Name = "btnAll";
+            btnAll.Size = new Size(49, 23);
+            btnAll.TabIndex = 18;
+            btnAll.Text = "All";
+            btnAll.UseVisualStyleBackColor = false;
+            btnAll.Click += btnAll_Click;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(15, 7, 43);
+            panel7.Controls.Add(label4);
+            panel7.Location = new Point(4, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(646, 40);
+            panel7.TabIndex = 16;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(12, 3);
+            label4.Name = "label4";
+            label4.Size = new Size(127, 28);
+            label4.TabIndex = 0;
+            label4.Text = "MY ORDERS";
+            label4.Click += label4_Click;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(227, 242, 253);
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(btnlifetime);
+            panel6.Controls.Add(lblTotalspent);
+            panel6.Controls.Add(label9);
+            panel6.Location = new Point(460, 52);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(187, 95);
+            panel6.TabIndex = 8;
+            // 
+            // btnlifetime
+            // 
+            btnlifetime.BackColor = Color.FromArgb(227, 242, 253);
+            btnlifetime.FlatStyle = FlatStyle.Popup;
+            btnlifetime.ForeColor = Color.Blue;
+            btnlifetime.Location = new Point(21, 58);
+            btnlifetime.Name = "btnlifetime";
+            btnlifetime.Size = new Size(68, 23);
+            btnlifetime.TabIndex = 14;
+            btnlifetime.Text = "LifeTime";
+            btnlifetime.UseVisualStyleBackColor = false;
+            // 
+            // lblTotalspent
+            // 
+            lblTotalspent.AutoSize = true;
+            lblTotalspent.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalspent.ForeColor = Color.Black;
+            lblTotalspent.Location = new Point(21, 27);
+            lblTotalspent.Name = "lblTotalspent";
+            lblTotalspent.Size = new Size(84, 28);
+            lblTotalspent.TabIndex = 13;
+            lblTotalspent.Text = "₱ 3,240";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 8F);
+            label9.ForeColor = Color.Gray;
+            label9.Location = new Point(21, 14);
+            label9.Name = "label9";
+            label9.Size = new Size(70, 13);
+            label9.TabIndex = 11;
+            label9.Text = "TOTAL SPENT";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(255, 243, 224);
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(btnInQueue);
+            panel5.Controls.Add(lblPending);
+            panel5.Controls.Add(label6);
+            panel5.Location = new Point(243, 52);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(188, 95);
+            panel5.TabIndex = 8;
+            // 
+            // btnInQueue
+            // 
+            btnInQueue.BackColor = Color.FromArgb(255, 244, 214);
+            btnInQueue.FlatStyle = FlatStyle.Flat;
+            btnInQueue.ForeColor = Color.Orange;
+            btnInQueue.Location = new Point(12, 58);
+            btnInQueue.Name = "btnInQueue";
+            btnInQueue.Size = new Size(71, 23);
+            btnInQueue.TabIndex = 12;
+            btnInQueue.Text = "In Queue";
+            btnInQueue.UseVisualStyleBackColor = false;
+            // 
+            // lblPending
+            // 
+            lblPending.AutoSize = true;
+            lblPending.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPending.ForeColor = Color.Black;
+            lblPending.Location = new Point(12, 27);
+            lblPending.Name = "lblPending";
+            lblPending.Size = new Size(24, 28);
+            lblPending.TabIndex = 12;
+            lblPending.Text = "2";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 8F);
+            label6.ForeColor = Color.Gray;
+            label6.Location = new Point(3, 14);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 13);
+            label6.TabIndex = 10;
+            label6.Text = "PENDING";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(232, 245, 233);
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(btnActive);
+            panel4.Controls.Add(lblOrder);
+            panel4.Controls.Add(label7);
+            panel4.Location = new Point(18, 52);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(194, 95);
+            panel4.TabIndex = 7;
+            // 
+            // btnActive
+            // 
+            btnActive.AutoSize = true;
+            btnActive.BackColor = Color.FromArgb(223, 245, 225);
+            btnActive.ForeColor = Color.Green;
+            btnActive.Location = new Point(10, 58);
+            btnActive.Name = "btnActive";
+            btnActive.Size = new Size(53, 25);
+            btnActive.TabIndex = 11;
+            btnActive.Text = "Active";
+            btnActive.UseVisualStyleBackColor = false;
+            // 
+            // lblOrder
+            // 
+            lblOrder.AutoSize = true;
+            lblOrder.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOrder.ForeColor = Color.Black;
+            lblOrder.Location = new Point(10, 27);
+            lblOrder.Name = "lblOrder";
+            lblOrder.Size = new Size(36, 28);
+            lblOrder.TabIndex = 10;
+            lblOrder.Text = "12";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 8F);
+            label7.ForeColor = Color.Gray;
+            label7.Location = new Point(10, 14);
+            label7.Name = "label7";
+            label7.Size = new Size(82, 13);
+            label7.TabIndex = 9;
+            label7.Text = "TOTAL ORDERS";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(28, 28, 60);
+            panel1.Controls.Add(btnMyprofile);
+            panel1.Controls.Add(btnProducts);
+            panel1.Controls.Add(btnMyorders);
+            panel1.Controls.Add(btnDashboard);
+            panel1.Location = new Point(-1, 53);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(208, 350);
+            panel1.TabIndex = 5;
+            // 
+            // btnMyprofile
+            // 
+            btnMyprofile.BackColor = Color.Transparent;
+            btnMyprofile.FlatStyle = FlatStyle.Flat;
+            btnMyprofile.Font = new Font("Segoe UI", 11F);
+            btnMyprofile.ForeColor = Color.Green;
+            btnMyprofile.Location = new Point(0, 166);
+            btnMyprofile.Name = "btnMyprofile";
+            btnMyprofile.Padding = new Padding(10, 0, 0, 0);
+            btnMyprofile.Size = new Size(208, 30);
+            btnMyprofile.TabIndex = 3;
+            btnMyprofile.Text = "👤My Profile";
+            btnMyprofile.TextAlign = ContentAlignment.MiddleLeft;
+            btnMyprofile.UseVisualStyleBackColor = false;
+            btnMyprofile.Click += btnMyprofile_Click_1;
+            // 
+            // btnProducts
+            // 
+            btnProducts.BackColor = Color.Transparent;
+            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.Font = new Font("Segoe UI", 11F);
+            btnProducts.ForeColor = Color.Green;
+            btnProducts.Location = new Point(0, 120);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Padding = new Padding(10, 0, 0, 0);
+            btnProducts.Size = new Size(208, 30);
+            btnProducts.TabIndex = 2;
+            btnProducts.Text = "🛍️Products";
+            btnProducts.TextAlign = ContentAlignment.MiddleLeft;
+            btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click_1;
+            // 
+            // btnMyorders
+            // 
+            btnMyorders.BackColor = Color.Transparent;
+            btnMyorders.FlatStyle = FlatStyle.Flat;
+            btnMyorders.Font = new Font("Segoe UI", 11F);
+            btnMyorders.ForeColor = Color.FromArgb(212, 175, 55);
+            btnMyorders.Location = new Point(0, 72);
+            btnMyorders.Name = "btnMyorders";
+            btnMyorders.Padding = new Padding(10, 0, 0, 0);
+            btnMyorders.Size = new Size(208, 30);
+            btnMyorders.TabIndex = 1;
+            btnMyorders.Text = "🚚My Orders";
+            btnMyorders.TextAlign = ContentAlignment.MiddleLeft;
+            btnMyorders.UseVisualStyleBackColor = false;
+            // 
+            // btnDashboard
+            // 
+            btnDashboard.BackColor = Color.Transparent;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI", 11F);
+            btnDashboard.ForeColor = Color.Green;
+            btnDashboard.Location = new Point(0, 27);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Padding = new Padding(10, 0, 0, 0);
+            btnDashboard.Size = new Size(208, 30);
+            btnDashboard.TabIndex = 0;
+            btnDashboard.Text = "📊 Dashboard";
+            btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click_1;
+            // 
+            // User_MyOrders
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(860, 514);
+            Controls.Add(lblpanel);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Name = "User_MyOrders";
+            Text = "User_MyOrders";
+            lblpanel.ResumeLayout(false);
+            lblpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Panel lblpanel;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private Label label2;
+        private LinkLabel linkLabel1;
+        private Label label1;
+        private Panel panel3;
+        private Button btnExit;
+        private Button btnLogout;
+        private Panel panel2;
+        private Panel panel8;
+        private Panel panel7;
+        private Label label4;
+        private Panel panel6;
+        private Button btnlifetime;
+        private Label lblTotalspent;
+        private Label label9;
+        private Panel panel5;
+        private Button btnInQueue;
+        private Label lblPending;
+        private Label label6;
+        private Panel panel4;
+        private Button btnActive;
+        private Label lblOrder;
+        private Label label7;
+        private Panel panel1;
+        private Button btnMyprofile;
+        private Button btnProducts;
+        private Button btnMyorders;
+        private Button btnDashboard;
+        private Button btnAll;
+        private Button btnCompleted;
+        private Button btnPending;
+        private Button btnCancelled;
+        private DataGridView dataGridView1;
+        private Button btnsearch;
+        private TextBox textBox1;
+    }
+}
