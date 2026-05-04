@@ -190,6 +190,7 @@
             txtconfirm.Name = "txtconfirm";
             txtconfirm.Size = new Size(160, 23);
             txtconfirm.TabIndex = 19;
+            txtconfirm.TextChanged += txtconfirm_TextChanged;
             // 
             // label5
             // 

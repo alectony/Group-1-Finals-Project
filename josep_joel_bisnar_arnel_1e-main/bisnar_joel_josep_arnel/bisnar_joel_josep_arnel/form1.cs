@@ -1,5 +1,6 @@
-using MySql.Data.MySqlClient;
 using System.ComponentModel;
+using MySql.Data.MySqlClient;
+using static System.Windows.Forms.LinkLabel;
 
 namespace bisnar_joel_josep_arnel
 {
@@ -10,6 +11,10 @@ namespace bisnar_joel_josep_arnel
             InitializeComponent();
             txtpass.UseSystemPasswordChar = true;
             pb2.Hide();
+            lnkCreate.Cursor = Cursors.Hand;
+            lnkCreate.LinkColor = Color.White;
+
+
             panel1.BackColor = Color.FromArgb(100, 13, 10, 38);
             panel2.BackColor = Color.FromArgb(100, 13, 10, 38);
             lblacc.BackColor = Color.Transparent;
@@ -143,6 +148,16 @@ namespace bisnar_joel_josep_arnel
         }
 
         private void form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

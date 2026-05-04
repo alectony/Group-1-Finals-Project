@@ -72,32 +72,33 @@ namespace bisnar_joel_josep_arnel
             int choice = GlobalData.choice;
 
             passkey var = new passkey(first_name, last_name, address, user_name, password, confirmpass);
-  
-            if (string.IsNullOrEmpty(first_name) || string.IsNullOrEmpty (last_name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(user_name) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpass))
+
+            if (string.IsNullOrEmpty(first_name) || string.IsNullOrEmpty(last_name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(user_name) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpass))
             {
                 MessageBox.Show("Please fill all fields.");
                 return;
             }
-
             DBConnect db = new DBConnect();
-            if (choice == 0)
+            if (choice == 0 || confirmpass == password)
             {
                 try
                 {
                     db.Open();
-                    string query = "INSERT INTO user_info (first_name, last_name, address) VALUES (@first_name, @last_name, @address)";
-                    string query1 = "INSERT INTO clients(user_name, password, role)VALUES(@user_name,@password,@role)";
-                    MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-                    MySqlCommand cmd3 = new MySqlCommand(query1, db.Connection);
-                    cmd.Parameters.AddWithValue("@first_name", first_name);
-                    cmd.Parameters.AddWithValue("@last_name", last_name);
-                    cmd.Parameters.AddWithValue("@address", address);
-                    cmd3.Parameters.AddWithValue("@user_name", user_name);
-                    cmd3.Parameters.AddWithValue("@password", password);
-                    cmd3.Parameters.AddWithValue("@role", choice);
-                    cmd.ExecuteNonQuery();
-                    cmd3.ExecuteNonQuery();
-                    MessageBox.Show("Student added successfully!");
+                    string queryClients = "INSERT INTO clients(user_name, password, role) VALUES(@user_name, @password, @role)";
+                    MySqlCommand cmdClients = new MySqlCommand(queryClients, db.Connection);
+                    cmdClients.Parameters.AddWithValue("@user_name", user_name);
+                    cmdClients.Parameters.AddWithValue("@password", password);
+                    cmdClients.Parameters.AddWithValue("@role", choice);
+                    cmdClients.ExecuteNonQuery();
+                    long newUserId = cmdClients.LastInsertedId;
+                    string queryInfo = "INSERT INTO user_info (user_id, first_name, last_name, address) VALUES (@uid, @first_name, @last_name, @address)";
+                    MySqlCommand cmdInfo = new MySqlCommand(queryInfo, db.Connection);
+                    cmdInfo.Parameters.AddWithValue("@uid", newUserId);
+                    cmdInfo.Parameters.AddWithValue("@first_name", first_name);
+                    cmdInfo.Parameters.AddWithValue("@last_name", last_name);
+                    cmdInfo.Parameters.AddWithValue("@address", address);
+                    cmdInfo.ExecuteNonQuery();
+                    MessageBox.Show("Registration successful!");
                 }
                 catch (Exception ex)
                 {
@@ -114,9 +115,9 @@ namespace bisnar_joel_josep_arnel
                 page.Show();
                 this.Close();
             }
-           
-            
-            
+
+
+
 
         }
 
@@ -132,7 +133,7 @@ namespace bisnar_joel_josep_arnel
             GlobalData.choice = 1;
             panel3.Enabled = true;
         }
-        
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -148,6 +149,11 @@ namespace bisnar_joel_josep_arnel
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtconfirm_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -19,7 +19,7 @@ namespace bisnar_joel_josep_arnel
         public User_Profile(int id)
         {
             userId = id;
-           
+
             InitializeComponent();
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnMyorders.FlatAppearance.BorderSize = 0;
@@ -39,30 +39,27 @@ namespace bisnar_joel_josep_arnel
                 string queryInfo = "SELECT    u.user_name,    i.first_name,    i.last_name,    i.address FROM clients u LEFT JOIN user_info i ON u.user_id = i.user_id WHERE u.user_id = @user_id;";
 
                 using (MySqlCommand cmd = new MySqlCommand(queryInfo, db.Connection))
-                    {
-                        cmd.Parameters.AddWithValue("@user_id", userId);
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
 
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                fname = reader["first_name"]?.ToString();
-                                lname = reader["last_name"]?.ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("No matching profile found!");
-                            }
+                            fname = reader["first_name"]?.ToString();
+                            lname = reader["last_name"]?.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching profile found!");
                         }
                     }
-                
-             
-                lbl_firstn.Text = fname;
-                lbl_lastn.Text = lname;
-                lblInatial.Text =
-                               (!string.IsNullOrWhiteSpace(fname) && !string.IsNullOrWhiteSpace(lname))
-                               ? $"{fname[0]}{lname[0]}"
-                               : "NA";
+                }
+
+
+                lbl_firstn.Text = fname.ToUpper();
+                lbl_lastn.Text = lname.ToUpper();
+                lblInatial.Text =(!string.IsNullOrWhiteSpace(fname) && !string.IsNullOrWhiteSpace(lname))? $"{fname.ToUpper()[0]}{lname.ToUpper()[0]}": "NA";
             }
             catch (Exception ex)
             {
@@ -128,11 +125,11 @@ namespace bisnar_joel_josep_arnel
         }
         private void LoadUserData()
         {
-            
+
         }
         private void LoadProfile()
         {
-          
+
         }
         private string GetInitials(string fn, string ln)
         {
@@ -249,6 +246,11 @@ namespace bisnar_joel_josep_arnel
             if (result == DialogResult.No)
             {
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,5 +46,10 @@ namespace bisnar_joel_josep_arnel
         {
 
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

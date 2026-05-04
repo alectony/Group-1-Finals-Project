@@ -88,6 +88,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(389, 515);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint_1;
             // 
             // pb3
             // 
@@ -233,6 +234,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(389, 100);
             panel2.TabIndex = 2;
+            panel2.Paint += panel2_Paint;
             // 
             // label3
             // 
