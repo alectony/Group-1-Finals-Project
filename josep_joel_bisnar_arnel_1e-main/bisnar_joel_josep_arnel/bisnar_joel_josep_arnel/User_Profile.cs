@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 namespace bisnar_joel_josep_arnel
 {
     public partial class User_Profile : Form
@@ -18,40 +19,60 @@ namespace bisnar_joel_josep_arnel
         public User_Profile(int id)
         {
             userId = id;
+           
             InitializeComponent();
-            LoadUserData();
-        }
-        private void LoadUserData()
-        {
+            /*LoadUserData();*/
             DBConnect db = new DBConnect();
             try
             {
+                string fname = "";
+                string lname = "";
+
                 db.Open();
-                string queryInfo = "SELECT first_name, last_name, address FROM user_info WHERE user_id = @id";
+
+                string queryInfo = "SELECT    u.user_name,    i.first_name,    i.last_name,    i.address FROM clients u LEFT JOIN user_info i ON u.user_id = i.user_id WHERE u.user_id = @user_id;";
+
                 using (MySqlCommand cmd = new MySqlCommand(queryInfo, db.Connection))
-                {
-                    cmd.Parameters.AddWithValue("@id", userId);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@user_id", userId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            string fn = reader["first_name"].ToString();
-                            string ln = reader["last_name"].ToString();
-                            textBox1.Text = fn;
-                            textBox2.Text = ln;
-                            textBox4.Text = reader["address"].ToString();
-                            lbl_firstn.Text = fn;
-                            lbl_lastn.Text = ln;
-                            lblInatial.Text = GetInitials(fn, ln);
+                            if (reader.Read())
+                            {
+                                fname = reader["first_name"]?.ToString();
+                                lname = reader["last_name"]?.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No matching profile found!");
+                            }
                         }
                     }
-                }
-
+                
+             
+                lbl_firstn.Text = fname;
+                lbl_lastn.Text = lname;
+                lblInatial.Text =
+                               (!string.IsNullOrWhiteSpace(fname) && !string.IsNullOrWhiteSpace(lname))
+                               ? $"{fname[0]}{lname[0]}"
+                               : "NA";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally { db.Close(); }
+            try
+            {
+                db.Open();
                 string queryClient = "SELECT user_name, password FROM clients WHERE user_id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(queryClient, db.Connection))
+
+                using (MySqlCommand cmd1 = new MySqlCommand(queryClient, db.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@id", userId);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    cmd1.Parameters.AddWithValue("@id", userId);
+
+                    using (MySqlDataReader reader = cmd1.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -65,51 +86,47 @@ namespace bisnar_joel_josep_arnel
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally { db.Close(); }
-        }
-        private void LoadProfile()
-        {
-            DBConnect db = new DBConnect();
+            finally
+            {
+                db.Close();
+            }
             try
             {
                 db.Open();
-                string query1 = "SELECT first_name, last_name, address FROM user_info WHERE user_id = @user_id";
+                string queryClient = "SELECT first_name, last_name, address FROM user_info WHERE user_id = @id";
 
-                using (MySqlCommand cmd = new MySqlCommand(query1, db.Connection))
+                using (MySqlCommand cmd2 = new MySqlCommand(queryClient, db.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@user_id", userId);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    cmd2.Parameters.AddWithValue("@id", userId);
+
+                    using (MySqlDataReader reader = cmd2.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             textBox1.Text = reader["first_name"].ToString();
                             textBox2.Text = reader["last_name"].ToString();
-                            textBox3.Text = reader["address"].ToString();
+                            textBox4.Text = reader["address"].ToString();
                         }
                     }
                 }
-                string query2 = "SELECT user_name, password FROM clients WHERE user_id = @user_id";
-
-                using (MySqlCommand cmd1 = new MySqlCommand(query2, db.Connection))
-                {
-                    cmd1.Parameters.AddWithValue("@user_id", userId);
-                    using (MySqlDataReader reader = cmd1.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            textBox4.Text = reader["user_name"].ToString();
-                            textBox6.Text = reader["password"].ToString();
-                            lblInatial.Text = reader["user_name"].ToString();
-                        }
-                    }
-                }
-                lblInatial.Text = GetInitials(lbl_firstn.Text, lbl_lastn.Text);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading profile: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
-            finally { db.Close(); }
+            finally
+            {
+                db.Close();
+            }
+
+        }
+        private void LoadUserData()
+        {
+            
+        }
+        private void LoadProfile()
+        {
+          
         }
         private string GetInitials(string fn, string ln)
         {

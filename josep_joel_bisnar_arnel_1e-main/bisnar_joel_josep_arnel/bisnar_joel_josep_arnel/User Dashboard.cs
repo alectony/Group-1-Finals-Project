@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,6 +76,31 @@ namespace bisnar_joel_josep_arnel
             {
                 db.Close();
             }
+            try
+            {
+                db.Open();
+                string query1 = "select count(*) FROM user_orders WHERE user_id = @user_id";
+                using (MySqlCommand cmd1 = new MySqlCommand(query1, db.Connection))
+                {
+                    cmd1.Parameters.AddWithValue("@user_id", userId);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd1))
+                    {
+                        int orderCount = Convert.ToInt32(cmd1.ExecuteScalar());
+                        lblOrder.Text = orderCount.ToString();
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
         }
         private void LoadUserData()
         {

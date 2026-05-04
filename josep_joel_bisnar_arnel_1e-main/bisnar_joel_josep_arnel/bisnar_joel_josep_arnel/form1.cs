@@ -88,7 +88,7 @@ namespace bisnar_joel_josep_arnel
                 db.Close();
             }
 
-            }
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -138,6 +138,11 @@ namespace bisnar_joel_josep_arnel
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void form1_Load(object sender, EventArgs e)
         {
 
         }
