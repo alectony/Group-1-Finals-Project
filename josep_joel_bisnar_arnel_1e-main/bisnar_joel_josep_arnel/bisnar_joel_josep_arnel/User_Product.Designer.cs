@@ -606,6 +606,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(208, 350);
             panel1.TabIndex = 9;
+            panel1.Paint += panel1_Paint;
             // 
             // btnMyprofile
             // 

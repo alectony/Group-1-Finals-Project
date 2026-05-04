@@ -21,6 +21,12 @@ namespace bisnar_joel_josep_arnel
         {
             userId = id;
             InitializeComponent();
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnMyorders.FlatAppearance.BorderSize = 0;
+            btnProducts.FlatAppearance.BorderSize = 0;
+            btnMyprofile.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.BorderSize = 0;
 
         }
         private void AddToCart(string itemName, decimal price)
@@ -162,6 +168,11 @@ namespace bisnar_joel_josep_arnel
         private void btnoiladd_Click(object sender, EventArgs e)
         {
             AddToCart("Cooking Oil 1L", 95.00m);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

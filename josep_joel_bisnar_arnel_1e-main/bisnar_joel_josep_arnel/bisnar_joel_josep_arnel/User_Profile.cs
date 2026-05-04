@@ -21,6 +21,12 @@ namespace bisnar_joel_josep_arnel
             userId = id;
            
             InitializeComponent();
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnMyorders.FlatAppearance.BorderSize = 0;
+            btnProducts.FlatAppearance.BorderSize = 0;
+            btnMyprofile.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.BorderSize = 0;
             /*LoadUserData();*/
             DBConnect db = new DBConnect();
             try
