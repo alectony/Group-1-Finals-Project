@@ -1,5 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace bisnar_joel_josep_arnel
 {
@@ -29,11 +30,12 @@ namespace bisnar_joel_josep_arnel
             btnExit.FlatAppearance.BorderSize = 0;
 
         }
-        private void AddToCart(string itemName, decimal price)
+        public void AddToCart(int productId, string itemName, decimal price)
         {
-            listNotifications.Items.Add(itemName);
+            ListViewItem item = new ListViewItem(itemName);
+            item.Tag = productId;
+            listNotifications.Items.Add(item);
             listPrices.Items.Add("₱" + price.ToString("N2"));
-
             totalAmount += price;
             lbltotal.Text = totalAmount.ToString("N2");
         }
@@ -117,30 +119,53 @@ namespace bisnar_joel_josep_arnel
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (listNotifications.Items.Count == 0) return;
 
             DBConnect db = new DBConnect();
             try
             {
                 db.Open();
-                foreach (var item in listNotifications.Items)
-                {
-                    string query = "INSERT INTO user_orders (user_id, item, status) VALUES (@uid, @item, 'Pending')";
-                    using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
-                    {
-                        cmd.Parameters.AddWithValue("@uid", userId);
-                        cmd.Parameters.AddWithValue("@item", item.ToString());
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                MySqlTransaction trans = db.Connection.BeginTransaction();
 
-                MessageBox.Show("Order Placed! Check 'My Orders' for status.");
-                ClearCart();
+                try
+                {
+                    foreach (ListViewItem item in listNotifications.Items)
+                    {
+                        int pid = (int)item.Tag;
+                        string itemName = item.Text;
+
+                        string orderQuery = "INSERT INTO user_orders (user_id, product_id, item, quantity, status) VALUES (@uid, @pid, @item,@qty, 'Pending')";
+                        using (MySqlCommand cmd = new MySqlCommand(orderQuery, db.Connection, trans))
+                        {
+                            cmd.Parameters.AddWithValue("@uid", userId);
+                            cmd.Parameters.AddWithValue("@pid", pid);
+                            cmd.Parameters.AddWithValue("@item", itemName);
+                            cmd.Parameters.AddWithValue("@qty", 1);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        string stockQuery = "UPDATE products SET quantity = quantity - 1 WHERE product_id = @pid AND quantity > 0";
+                        using (MySqlCommand cmdStock = new MySqlCommand(stockQuery, db.Connection, trans))
+                        {
+                            cmdStock.Parameters.AddWithValue("@pid", pid);
+                            cmdStock.ExecuteNonQuery();
+                        }
+                    }
+                    trans.Commit();
+                    MessageBox.Show("Order Placed! Stock updated.");
+                    ClearCart();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
             finally { db.Close(); }
         }
+
+
 
         private void ClearCart()
         {
@@ -157,25 +182,44 @@ namespace bisnar_joel_josep_arnel
 
         private void btnriceadd_Click(object sender, EventArgs e)
         {
-            AddToCart("Rice 1kg", 50.00m);
+            AddToCart(1, "Rice 1kg", 50.00m);
         }
 
         private void btnwateradd_Click(object sender, EventArgs e)
         {
-            AddToCart("Water 500ml", 12.00m);
+            AddToCart(2, "Water 500ml", 15.00m);
         }
 
         private void btnoiladd_Click(object sender, EventArgs e)
         {
-            AddToCart("Cooking Oil 1L", 95.00m);
+            AddToCart(3, "Cooking Oil 1L", 35.00m);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

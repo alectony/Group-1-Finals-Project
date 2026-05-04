@@ -101,6 +101,31 @@ namespace bisnar_joel_josep_arnel
                 db.Close();
             }
 
+            try
+            {
+                db.Open();
+                string query2 = "select count(*) FROM user_orders WHERE status = 'Pending'";
+                using (MySqlCommand cmd2 = new MySqlCommand(query2, db.Connection))
+                {
+                    cmd2.Parameters.AddWithValue("@user_id", userId);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd2))
+                    {
+                        int orderCount = Convert.ToInt32(cmd2.ExecuteScalar());
+                        lblPending.Text = orderCount.ToString();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
         }
         private void LoadUserData()
         {

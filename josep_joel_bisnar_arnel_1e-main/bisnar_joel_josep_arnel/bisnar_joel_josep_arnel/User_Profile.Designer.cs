@@ -192,6 +192,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(232, 136, 39);
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(panel8);
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel4);
@@ -390,7 +392,7 @@
             lbl_lastn.BackColor = Color.Transparent;
             lbl_lastn.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_lastn.ForeColor = Color.Black;
-            lbl_lastn.Location = new Point(145, 10);
+            lbl_lastn.Location = new Point(175, 10);
             lbl_lastn.Name = "lbl_lastn";
             lbl_lastn.Size = new Size(50, 28);
             lbl_lastn.TabIndex = 15;
@@ -426,7 +428,7 @@
             lblInatial.BackColor = Color.ForestGreen;
             lblInatial.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblInatial.ForeColor = Color.Black;
-            lblInatial.Location = new Point(23, 28);
+            lblInatial.Location = new Point(31, 28);
             lblInatial.Name = "lblInatial";
             lblInatial.Size = new Size(50, 28);
             lblInatial.TabIndex = 10;
@@ -442,6 +444,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // panel1
             // 

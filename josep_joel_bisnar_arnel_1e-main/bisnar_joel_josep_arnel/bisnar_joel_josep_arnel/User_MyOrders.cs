@@ -38,31 +38,43 @@ namespace bisnar_joel_josep_arnel
         {
             DBConnect db = new DBConnect();
 
+            
             try
             {
                 db.Open();
-
-                string query = "SELECT user_orders, user_penoders, user_totspent FROM transactions WHERE user_id=@user_id";
-
-                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-                cmd.Parameters.AddWithValue("@user_id", userId);
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                string query1 = "select count(*) FROM user_orders WHERE user_id = @user_id";
+                using (MySqlCommand cmd1 = new MySqlCommand(query1, db.Connection))
                 {
-                    lblOrder.Text = reader["user_orders"].ToString();
-                    lblPending.Text = reader["user_penoders"].ToString();
-                    lblTotalspent.Text = reader["user_totspent"].ToString();
-                }
-                else
-                {
-                    lblOrder.Text = "0";
-                    lblPending.Text = "0";
-                    lblTotalspent.Text = "0";
+                    cmd1.Parameters.AddWithValue("@user_id", userId);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd1))
+                    {
+                        int orderCount = Convert.ToInt32(cmd1.ExecuteScalar());
+                        lblOrder.Text = orderCount.ToString();
+                    }
                 }
 
-                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
+            try
+            {
+                db.Open();
+                string query2 = "SELECT COUNT(*) FROM user_orders WHERE status = 'Pending' AND user_id = @user_id";
+                using (MySqlCommand cmd2 = new MySqlCommand(query2, db.Connection))
+                {
+                    cmd2.Parameters.AddWithValue("@user_id", userId); 
+                    int orderCount = Convert.ToInt32(cmd2.ExecuteScalar());
+                    lblPending.Text = orderCount.ToString();
+                }
+
             }
             catch (Exception ex)
             {
@@ -80,7 +92,6 @@ namespace bisnar_joel_josep_arnel
         }
 
 
-        // Central method to load and filter data from PostgreSQL
         private void LoadOrders(string status, string searchKeyword = "")
         {
             DBConnect db = new DBConnect();
@@ -88,18 +99,21 @@ namespace bisnar_joel_josep_arnel
             {
                 db.Open();
 
-                string query = @"SELECT order_id, item, quantity, total, status 
-                                 FROM user_orders 
-                                 WHERE user_id = @user_id";
+
+                string query = @"SELECT order_id, item, user_orders.quantity, 
+                products.product_price * user_orders.quantity AS total, status 
+                FROM user_orders 
+                LEFT JOIN products ON user_orders.product_id = products.product_id
+                WHERE user_id = @user_id";
+
                 if (status != "All")
                 {
                     query += " AND status = @status";
                 }
 
-                // Add Search Filter
                 if (!string.IsNullOrEmpty(searchKeyword))
                 {
-                    query += " AND (item ILIKE @search OR order_id::text ILIKE @search)";
+                    query += " AND (item LIKE @search OR CAST(order_id AS CHAR) LIKE @search)";
                 }
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
@@ -267,6 +281,16 @@ namespace bisnar_joel_josep_arnel
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void User_MyOrders_Load_1(object sender, EventArgs e)
         {
 
         }

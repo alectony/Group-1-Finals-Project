@@ -40,6 +40,7 @@
             btnLogout = new Button();
             panel2 = new Panel();
             panel6 = new Panel();
+            vScrollBar1 = new VScrollBar();
             panel17 = new Panel();
             pictureBox11 = new PictureBox();
             label18 = new Label();
@@ -108,7 +109,6 @@
             btnProducts = new Button();
             btnMyorders = new Button();
             btnDashboard = new Button();
-            vScrollBar1 = new VScrollBar();
             lblpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -259,6 +259,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(232, 136, 39);
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel7);
@@ -289,6 +291,14 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(448, 750);
             panel6.TabIndex = 21;
+            // 
+            // vScrollBar1
+            // 
+            vScrollBar1.Location = new Point(438, 1);
+            vScrollBar1.Name = "vScrollBar1";
+            vScrollBar1.Size = new Size(10, 751);
+            vScrollBar1.TabIndex = 32;
+            vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
             // panel17
             // 
@@ -596,6 +606,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 26;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // label10
             // 
@@ -677,6 +688,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 25;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // label9
             // 
@@ -759,6 +771,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 24;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // label8
             // 
@@ -1011,13 +1024,6 @@
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
-            // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Location = new Point(438, 0);
-            vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new Size(10, 751);
-            vScrollBar1.TabIndex = 32;
             // 
             // User_Product
             // 

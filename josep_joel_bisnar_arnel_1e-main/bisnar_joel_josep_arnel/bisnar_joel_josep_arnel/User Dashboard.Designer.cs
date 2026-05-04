@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Dashboard));
             btnDashboard = new Button();
             panel1 = new Panel();
             btnMyprofile = new Button();
@@ -158,6 +159,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(232, 136, 39);
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(dataGridView2);
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(panel8);
@@ -187,9 +190,9 @@
             // 
             panel9.BackColor = Color.FromArgb(15, 7, 43);
             panel9.Controls.Add(label12);
-            panel9.Location = new Point(6, 298);
+            panel9.Location = new Point(6, 300);
             panel9.Name = "panel9";
-            panel9.Size = new Size(650, 32);
+            panel9.Size = new Size(650, 30);
             panel9.TabIndex = 18;
             // 
             // label12

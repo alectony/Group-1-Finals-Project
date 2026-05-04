@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_MyOrders));
             lblpanel = new Panel();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -194,6 +195,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(232, 136, 39);
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(panel8);
             panel2.Controls.Add(panel7);
@@ -208,7 +211,7 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(255, 128, 0);
+            dataGridView1.BackgroundColor = SystemColors.MenuBar;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(6, 216);
             dataGridView1.Name = "dataGridView1";
@@ -229,6 +232,7 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(644, 57);
             panel8.TabIndex = 17;
+            panel8.Paint += panel8_Paint;
             // 
             // btnsearch
             // 
@@ -358,9 +362,9 @@
             lblTotalspent.ForeColor = Color.Black;
             lblTotalspent.Location = new Point(21, 27);
             lblTotalspent.Name = "lblTotalspent";
-            lblTotalspent.Size = new Size(84, 28);
+            lblTotalspent.Size = new Size(43, 28);
             lblTotalspent.TabIndex = 13;
-            lblTotalspent.Text = "₱ 3,240";
+            lblTotalspent.Text = "₱ 0";
             // 
             // label9
             // 
@@ -551,6 +555,7 @@
             Controls.Add(panel1);
             Name = "User_MyOrders";
             Text = "User_MyOrders";
+            Load += User_MyOrders_Load_1;
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
