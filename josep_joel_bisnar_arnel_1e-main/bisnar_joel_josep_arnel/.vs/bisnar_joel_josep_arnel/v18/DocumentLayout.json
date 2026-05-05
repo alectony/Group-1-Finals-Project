@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -100,13 +100,17 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "User Dashboard.cs",
               "DocumentMoniker": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\User Dashboard.cs",
-              "ToolTip": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs*",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\User Dashboard.cs*",
+              "ToolTip": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs",
+              "RelativeToolTip": "bisnar_joel_josep_arnel\\User Dashboard.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAUwGoAAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-05T02:42:49.526Z",
@@ -194,8 +198,8 @@
               "Title": "User Dashboard.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs",
               "RelativeDocumentMoniker": "bisnar_joel_josep_arnel\\User Dashboard.cs",
-              "ToolTip": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs [Design]*",
-              "RelativeToolTip": "bisnar_joel_josep_arnel\\User Dashboard.cs [Design]*",
+              "ToolTip": "C:\\Users\\Neigh\\source\\repos\\alectony\\Group-1-Finals-Project\\josep_joel_bisnar_arnel_1e-main\\bisnar_joel_josep_arnel\\bisnar_joel_josep_arnel\\User Dashboard.cs [Design]",
+              "RelativeToolTip": "bisnar_joel_josep_arnel\\User Dashboard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T18:27:59.946Z",
               "EditorCaption": " [Design]"

@@ -1035,6 +1035,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "User_Product";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "User_Product";
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();

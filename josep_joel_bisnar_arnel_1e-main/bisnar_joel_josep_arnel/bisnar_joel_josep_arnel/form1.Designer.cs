@@ -271,6 +271,7 @@
             Controls.Add(panel1);
             DoubleBuffered = true;
             Name = "form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += form1_Load;
             panel1.ResumeLayout(false);

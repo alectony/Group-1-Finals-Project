@@ -554,6 +554,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "User_MyOrders";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "User_MyOrders";
             Load += User_MyOrders_Load_1;
             lblpanel.ResumeLayout(false);

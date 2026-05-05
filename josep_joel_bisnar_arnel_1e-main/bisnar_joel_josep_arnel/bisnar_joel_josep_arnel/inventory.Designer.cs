@@ -769,6 +769,7 @@
             Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "inventory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " INVENTORY";
             Load += Form2_Load;
             panel1.ResumeLayout(false);

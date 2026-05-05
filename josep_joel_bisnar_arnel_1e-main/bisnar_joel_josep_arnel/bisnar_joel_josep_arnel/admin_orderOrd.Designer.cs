@@ -493,6 +493,7 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Name = "admin_orderOrd";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "admin_orderOrd";
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();

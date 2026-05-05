@@ -317,6 +317,7 @@
             ClientSize = new Size(270, 450);
             Controls.Add(panel1);
             Name = "passkey";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "passkey";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -337,6 +337,7 @@
             Controls.Add(panel2);
             DoubleBuffered = true;
             Name = "RegAcc";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RegAcc";
             Load += RegAcc_Load;
             panel2.ResumeLayout(false);

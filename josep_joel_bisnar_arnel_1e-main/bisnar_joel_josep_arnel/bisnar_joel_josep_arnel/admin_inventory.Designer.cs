@@ -625,6 +625,7 @@
             Controls.Add(panel1);
             DoubleBuffered = true;
             Name = "admin_inventory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "admin_inventory";
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();

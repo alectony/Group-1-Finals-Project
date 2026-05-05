@@ -531,6 +531,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "User_Profile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "User_Profile";
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();
