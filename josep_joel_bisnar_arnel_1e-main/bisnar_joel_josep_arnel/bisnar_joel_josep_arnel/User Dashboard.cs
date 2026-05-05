@@ -104,7 +104,7 @@ namespace bisnar_joel_josep_arnel
             try
             {
                 db.Open();
-                string query2 = "select count(*) FROM user_orders WHERE status = 'Pending'";
+                string query2 = "select count(*) FROM user_orders WHERE status = 'Pending' and user_id = @user_id";
                 using (MySqlCommand cmd2 = new MySqlCommand(query2, db.Connection))
                 {
                     cmd2.Parameters.AddWithValue("@user_id", userId);
