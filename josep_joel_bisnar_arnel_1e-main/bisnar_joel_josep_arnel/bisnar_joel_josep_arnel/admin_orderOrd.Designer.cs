@@ -60,9 +60,9 @@
             dataGridView3 = new DataGridView();
             panel7 = new Panel();
             panel8 = new Panel();
+            btnSend = new Button();
             button3 = new Button();
-            button4 = new Button();
-            textBox2 = new TextBox();
+            TextBox2 = new TextBox();
             label5 = new Label();
             panel9 = new Panel();
             lblpanel.SuspendLayout();
@@ -91,7 +91,7 @@
             lblpanel.Dock = DockStyle.Top;
             lblpanel.Location = new Point(0, 0);
             lblpanel.Name = "lblpanel";
-            lblpanel.Size = new Size(860, 53);
+            lblpanel.Size = new Size(861, 53);
             lblpanel.TabIndex = 7;
             // 
             // pictureBox1
@@ -108,7 +108,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(2091, 22);
+            label3.Location = new Point(2092, 22);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 3;
@@ -119,7 +119,7 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(2435, 20);
+            label2.Location = new Point(2436, 20);
             label2.Name = "label2";
             label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
@@ -174,6 +174,7 @@
             btnExit.Text = "➜]Exit ";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // btnLogout
             // 
@@ -428,14 +429,24 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(13, 10, 38);
+            panel8.Controls.Add(btnSend);
             panel8.Controls.Add(button3);
-            panel8.Controls.Add(button4);
-            panel8.Controls.Add(textBox2);
+            panel8.Controls.Add(TextBox2);
             panel8.Controls.Add(label5);
             panel8.Location = new Point(404, 42);
             panel8.Name = "panel8";
             panel8.Size = new Size(237, 150);
             panel8.TabIndex = 2;
+            // 
+            // btnSend
+            // 
+            btnSend.Location = new Point(16, 64);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(209, 27);
+            btnSend.TabIndex = 4;
+            btnSend.Text = "Send";
+            btnSend.UseVisualStyleBackColor = true;
+            btnSend.Click += btnSend_Click;
             // 
             // button3
             // 
@@ -447,21 +458,12 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // button4
+            // TextBox2
             // 
-            button4.Location = new Point(16, 64);
-            button4.Name = "button4";
-            button4.Size = new Size(209, 27);
-            button4.TabIndex = 2;
-            button4.Text = "Send";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(16, 35);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(209, 23);
-            textBox2.TabIndex = 1;
+            TextBox2.Location = new Point(16, 35);
+            TextBox2.Name = "TextBox2";
+            TextBox2.Size = new Size(209, 23);
+            TextBox2.TabIndex = 1;
             // 
             // label5
             // 
@@ -486,7 +488,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(860, 485);
+            ClientSize = new Size(861, 484);
             Controls.Add(message);
             Controls.Add(org);
             Controls.Add(lblpanel);
@@ -548,12 +550,13 @@
         private Panel panel8;
         private Button button3;
         private Button button4;
-        private TextBox textBox2;
+        private TextBox TextBox2;
         private Label label5;
         private Panel panel9;
         private RichTextBox richTextBox1;
         private Label label7;
         private Label label6;
         private DataGridView dgvPend;
+        private Button btnSend;
     }
 }

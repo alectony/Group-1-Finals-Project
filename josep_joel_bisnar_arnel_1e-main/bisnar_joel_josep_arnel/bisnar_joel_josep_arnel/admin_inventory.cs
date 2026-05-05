@@ -223,13 +223,13 @@ namespace bisnar_joel_josep_arnel
         {
 
             int pid = (int)numericUpDown1.Value;
-    
+
             DBConnect db = new DBConnect();
             try
             {
                 db.Open();
                 string query = "UPDATE products SET product_name=@name, product_price=@price, quantity=@qty WHERE product_id=@pid";
-        
+
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", txtUpdateName.Text);
@@ -238,7 +238,7 @@ namespace bisnar_joel_josep_arnel
                     cmd.Parameters.AddWithValue("@pid", pid);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Product updated successfully!");
-                    LoadProducts(); 
+                    LoadProducts();
                 }
             }
             catch (Exception ex)
@@ -250,7 +250,7 @@ namespace bisnar_joel_josep_arnel
                 db.Close();
             }
         }
-        
+
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -266,6 +266,32 @@ namespace bisnar_joel_josep_arnel
                 txtUpdateSKU.Clear();
                 txtUpdatePrice.Clear();
                 txtUpdateQty.Clear();
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                form1 form = new form1();
+                form.Show();
+                this.Hide();
+            }
+            if (result == DialogResult.No)
+            {
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            if (result == DialogResult.No)
+            {
             }
         }
     }

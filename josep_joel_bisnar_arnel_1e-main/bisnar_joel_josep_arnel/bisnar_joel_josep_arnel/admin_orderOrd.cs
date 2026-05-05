@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
 using MySql.Data.MySqlClient;
 
 namespace bisnar_joel_josep_arnel
@@ -111,6 +113,16 @@ namespace bisnar_joel_josep_arnel
         private void btnLogout_Click(object sender, EventArgs e)
         {
 
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                form1 form = new form1();
+                form.Show();
+                this.Hide();
+            }
+            if (result == DialogResult.No)
+            {
+            }
         }
 
         private void dgvPend_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,6 +138,7 @@ namespace bisnar_joel_josep_arnel
                 if (row.Cells["Customer_Name"].Value != null)
                 {
                     textBox1.Text = row.Cells["Customer_Name"].Value.ToString();
+                    TextBox2.Text = row.Cells["Customer_Name"].Value.ToString();
                 }
                 if (row.Cells["order_id"].Value != null)
                 {
@@ -141,40 +154,147 @@ namespace bisnar_joel_josep_arnel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (selectedOrderId != -1)
+            if (selectedOrderId == -1)
             {
-                DBConnect db = new DBConnect();
+                MessageBox.Show("Please select an order to mark as completed.");
+                return;
+            }
+
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+                MySqlTransaction trans = db.Connection.BeginTransaction();
+
                 try
                 {
-                    db.Open();
-                    string query = "UPDATE user_orders SET status = @status WHERE order_id = @order_id";
-                    using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                    int productId = 0;
+                    int quantity = 0;
+                    int userId = 0;
+                    decimal total = 0;
+
+                    string detailQuery = "SELECT product_id, quantity, user_id, total FROM user_orders WHERE order_id = @oid";
+                    using (MySqlCommand cmdDetail = new MySqlCommand(detailQuery, db.Connection, trans))
                     {
-                        cmd.Parameters.AddWithValue("@status", "completed");
-                        cmd.Parameters.AddWithValue("@order_id", selectedOrderId);
-                        cmd.ExecuteNonQuery();
+                        cmdDetail.Parameters.AddWithValue("@oid", selectedOrderId);
+                        using (MySqlDataReader reader = cmdDetail.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                productId = reader.GetInt32("product_id");
+                                quantity = reader.GetInt32("quantity");
+                                userId = reader.GetInt32("user_id");
+                                total = reader.GetDecimal("total");
+                            }
+                        }
                     }
+
+                    string updateStatus = "UPDATE user_orders SET status = 'Completed' WHERE order_id = @oid";
+                    using (MySqlCommand cmdStatus = new MySqlCommand(updateStatus, db.Connection, trans))
+                    {
+                        cmdStatus.Parameters.AddWithValue("@oid", selectedOrderId);
+                        cmdStatus.ExecuteNonQuery();
+                    }
+
+                    string updateStock = "UPDATE products SET quantity = quantity - @qty WHERE product_id = @pid";
+                    using (MySqlCommand cmdStock = new MySqlCommand(updateStock, db.Connection, trans))
+                    {
+                        cmdStock.Parameters.AddWithValue("@qty", quantity);
+                        cmdStock.Parameters.AddWithValue("@pid", productId);
+                        cmdStock.ExecuteNonQuery();
+                    }
+
+                    string updateTrans = @"UPDATE transactions 
+                                 SET user_penoders = user_penoders - 1 
+                                 WHERE user_id = @uid";
+                    using (MySqlCommand cmdTrans = new MySqlCommand(updateTrans, db.Connection, trans))
+                    {
+                        cmdTrans.Parameters.AddWithValue("@uid", userId);
+                        cmdTrans.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                    MessageBox.Show("Order processed and stock updated!");
                     LoadPendingOrders();
                     LoadCompletedOrders();
-                    MessageBox.Show("Order marked as completed!");
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error updating order status: " + ex.Message);
-                }
-                finally
-                {
-                    db.Close();
+                    trans.Rollback();
+                    MessageBox.Show("Transaction Failed: " + ex.Message);
                 }
             }
-            else
+            catch (Exception ex) { MessageBox.Show("Database Error: " + ex.Message); }
+            finally { db.Close(); }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Please select an order to mark as completed.");
+                Application.Exit();
             }
+            if (result == DialogResult.No)
+            {
+            }
+        }
 
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (selectedOrderId == -1) { MessageBox.Show("Select an order first!"); return; }
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text)) { MessageBox.Show("Enter a reason!"); return; }
 
-
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+                string userEmail = "";
+                string itemName = "";
+                string query = @"SELECT ui.email, uo.item 
+                 FROM user_orders uo 
+                 INNER JOIN clients c ON uo.user_id = c.user_id 
+                 INNER JOIN user_info ui ON c.user_id = ui.user_id 
+                 WHERE uo.order_id = @oid";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@oid", selectedOrderId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userEmail = reader["email"].ToString();
+                            itemName = reader["item"].ToString();
+                        }
+                    }
+                }
+                MailMessage mail = new MailMessage();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("anthonyjohnbisnar@gmail.com", "Grab n Go Admin");
+                mail.To.Add(userEmail);
+                mail.Subject = "Order Declined: " + itemName;
+                mail.Body = $"Hi! Your order for {itemName} was declined.\n\nReason: {richTextBox1.Text}";
+                smtp.Port = 587;
+                smtp.Credentials = new NetworkCredential("anthonyjohnbisnar@gmail.com", "dhkkktkqznulwbvv");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                string updateQuery = "UPDATE user_orders SET status = 'Cancelled' WHERE order_id = @oid";
+                using (MySqlCommand cmdUpdate = new MySqlCommand(updateQuery, db.Connection))
+                {
+                    cmdUpdate.Parameters.AddWithValue("@oid", selectedOrderId);
+                    cmdUpdate.ExecuteNonQuery();
+                }
+                MessageBox.Show("Email sent and order cancelled successfully!");
+                richTextBox1.Clear();
+                org.Location = new Point(207, 53); 
+                message.Location = new Point(1000, 60); 
+                LoadPendingOrders();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong: " + ex.Message);
+            }
+            finally { db.Close(); }
         }
     }
 }

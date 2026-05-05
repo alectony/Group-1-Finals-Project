@@ -37,48 +37,37 @@ namespace bisnar_joel_josep_arnel
         private void LoadUserData()
         {
             DBConnect db = new DBConnect();
-
-            
             try
             {
                 db.Open();
-                string query1 = "select count(*) FROM user_orders WHERE user_id = @user_id";
-                using (MySqlCommand cmd1 = new MySqlCommand(query1, db.Connection))
-                {
-                    cmd1.Parameters.AddWithValue("@user_id", userId);
 
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd1))
+                string query = @"SELECT 
+                        COUNT(*) as total_count, 
+                        SUM(CASE WHEN status = 'Pending' THEN 1 ELSE 0 END) as pending_count,
+                        COALESCE(SUM(total), 0) as total_spent
+                        FROM user_orders 
+                        WHERE user_id = @user_id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int orderCount = Convert.ToInt32(cmd1.ExecuteScalar());
-                        lblOrder.Text = orderCount.ToString();
+                        if (reader.Read())
+                        {
+                            lblOrder.Text = reader["total_count"].ToString();
+                            lblPending.Text = reader["pending_count"].ToString();
+
+                            decimal spent = Convert.ToDecimal(reader["total_spent"]);
+                            lblTotalspent.Text = spent.ToString("N2");
+                        }
                     }
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                db.Close();
-            }
-
-            try
-            {
-                db.Open();
-                string query2 = "SELECT COUNT(*) FROM user_orders WHERE status = 'Pending' AND user_id = @user_id";
-                using (MySqlCommand cmd2 = new MySqlCommand(query2, db.Connection))
-                {
-                    cmd2.Parameters.AddWithValue("@user_id", userId); 
-                    int orderCount = Convert.ToInt32(cmd2.ExecuteScalar());
-                    lblPending.Text = orderCount.ToString();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error loading order stats: " + ex.Message);
             }
             finally
             {
@@ -201,11 +190,11 @@ namespace bisnar_joel_josep_arnel
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            LoadOrders(curr, btnsearch.Text);
+            LoadOrders(curr, textBox1.Text);
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadOrders(curr, btnsearch.Text);
+            LoadOrders(curr, textBox1.Text);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

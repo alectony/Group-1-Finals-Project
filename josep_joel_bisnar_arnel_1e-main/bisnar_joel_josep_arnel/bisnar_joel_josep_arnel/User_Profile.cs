@@ -163,12 +163,13 @@ namespace bisnar_joel_josep_arnel
             {
                 db.Open();
                 int totalRowsAffected = 0;
-                string query1 = @"UPDATE user_info SET first_name = @first_name, last_name = @last_name, address = @address WHERE user_id = @user_id";
+                string query1 = @"UPDATE user_info SET first_name = @first_name, last_name = @last_name, address = @address, email = @email WHERE user_id = @user_id";
                 using (MySqlCommand cmd = new MySqlCommand(query1, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@first_name", textBox1.Text);
                     cmd.Parameters.AddWithValue("@last_name", textBox2.Text);
                     cmd.Parameters.AddWithValue("@address", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@user_id", userId);
                     totalRowsAffected += cmd.ExecuteNonQuery();
                 }

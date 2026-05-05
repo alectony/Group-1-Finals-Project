@@ -93,12 +93,11 @@
             panel4 = new Panel();
             label5 = new Label();
             panel5 = new Panel();
+            listNotifications = new ListView();
             button2 = new Button();
             button1 = new Button();
             lbltotal = new Label();
             label6 = new Label();
-            listPrices = new ListBox();
-            listNotifications = new ListBox();
             label7 = new Label();
             panel7 = new Panel();
             btnAll = new Button();
@@ -155,7 +154,7 @@
             lblpanel.Dock = DockStyle.Top;
             lblpanel.Location = new Point(0, 0);
             lblpanel.Name = "lblpanel";
-            lblpanel.Size = new Size(876, 53);
+            lblpanel.Size = new Size(871, 53);
             lblpanel.TabIndex = 12;
             // 
             // pictureBox1
@@ -172,7 +171,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(2767, 22);
+            label3.Location = new Point(2762, 22);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 3;
@@ -183,7 +182,7 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3111, 20);
+            label2.Location = new Point(3106, 20);
             label2.Name = "label2";
             label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
@@ -818,17 +817,25 @@
             // 
             panel5.BackColor = Color.FromArgb(232, 245, 233);
             panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(listNotifications);
             panel5.Controls.Add(button2);
             panel5.Controls.Add(button1);
             panel5.Controls.Add(lbltotal);
             panel5.Controls.Add(label6);
-            panel5.Controls.Add(listPrices);
-            panel5.Controls.Add(listNotifications);
             panel5.Controls.Add(label7);
             panel5.Location = new Point(460, 93);
             panel5.Name = "panel5";
             panel5.Size = new Size(202, 365);
             panel5.TabIndex = 20;
+            // 
+            // listNotifications
+            // 
+            listNotifications.Location = new Point(6, 33);
+            listNotifications.Name = "listNotifications";
+            listNotifications.Size = new Size(189, 97);
+            listNotifications.TabIndex = 22;
+            listNotifications.UseCompatibleStateImageBehavior = false;
+            listNotifications.SelectedIndexChanged += listNotifications_SelectedIndexChanged_1;
             // 
             // button2
             // 
@@ -872,28 +879,6 @@
             label6.TabIndex = 18;
             label6.Text = "TOTAL";
             // 
-            // listPrices
-            // 
-            listPrices.BackColor = Color.LightGray;
-            listPrices.BorderStyle = BorderStyle.None;
-            listPrices.FormattingEnabled = true;
-            listPrices.ItemHeight = 15;
-            listPrices.Location = new Point(130, 39);
-            listPrices.Name = "listPrices";
-            listPrices.Size = new Size(67, 165);
-            listPrices.TabIndex = 17;
-            // 
-            // listNotifications
-            // 
-            listNotifications.BackColor = Color.LightGray;
-            listNotifications.BorderStyle = BorderStyle.None;
-            listNotifications.FormattingEnabled = true;
-            listNotifications.ItemHeight = 15;
-            listNotifications.Location = new Point(7, 39);
-            listNotifications.Name = "listNotifications";
-            listNotifications.Size = new Size(117, 165);
-            listNotifications.TabIndex = 16;
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -923,7 +908,7 @@
             btnAll.BackgroundImageLayout = ImageLayout.None;
             btnAll.FlatStyle = FlatStyle.Flat;
             btnAll.ForeColor = Color.Green;
-            btnAll.Location = new Point(584, 45);
+            btnAll.Location = new Point(567, 45);
             btnAll.Name = "btnAll";
             btnAll.Size = new Size(61, 23);
             btnAll.TabIndex = 19;
@@ -1029,7 +1014,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 526);
+            ClientSize = new Size(871, 526);
             Controls.Add(lblpanel);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -1118,8 +1103,6 @@
         private Label label7;
         private Label lbltotal;
         private Label label6;
-        private ListBox listPrices;
-        private ListBox listNotifications;
         private Button button2;
         private Button button1;
         private Panel panel6;
@@ -1172,5 +1155,6 @@
         private Label label17;
         private Button button5;
         private VScrollBar vScrollBar1;
+        private ListView listNotifications;
     }
 }

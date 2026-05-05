@@ -17,6 +17,7 @@ namespace bisnar_joel_josep_arnel
     {
         private string firstname, lastname, address, username, password, confirmpass;
         private int attemptsLeft = 3;
+        private int userId;
         public static class globalData
         {
             public static string passkey = "";
@@ -156,7 +157,7 @@ namespace bisnar_joel_josep_arnel
 
         private void button13_Click(object sender, EventArgs e)
         {
-            RegAcc page = new RegAcc();
+            RegAcc page = new RegAcc(userId);
             page.Show();
             this.Close();
         }

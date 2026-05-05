@@ -27,7 +27,7 @@ namespace bisnar_joel_josep_arnel
             chkpass.BackColor = Color.Transparent;
             lnkCreate.BackColor = Color.Transparent;
         }
-
+        private int userId;
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -64,7 +64,7 @@ namespace bisnar_joel_josep_arnel
                     {
                         MessageBox.Show("Welcome admin.");
 
-                        admin_inventory form = new admin_inventory();
+                        admin_orderOrd form = new admin_orderOrd();
                         form.Show();
                         this.Hide();
                     }
@@ -107,7 +107,7 @@ namespace bisnar_joel_josep_arnel
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            RegAcc page = new RegAcc();
+            RegAcc page = new RegAcc(userId);
             page.Show();
             this.Hide();
         }

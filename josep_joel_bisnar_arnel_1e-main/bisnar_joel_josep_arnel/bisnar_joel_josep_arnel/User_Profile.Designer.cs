@@ -66,6 +66,8 @@
             btnProducts = new Button();
             btnMyorders = new Button();
             btnDashboard = new Button();
+            label11 = new Label();
+            txtEmail = new TextBox();
             lblpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -205,6 +207,8 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(15, 7, 43);
+            panel8.Controls.Add(label11);
+            panel8.Controls.Add(txtEmail);
             panel8.Controls.Add(button1);
             panel8.Controls.Add(btnAll);
             panel8.Controls.Add(label12);
@@ -521,6 +525,24 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(320, 156);
+            label11.Name = "label11";
+            label11.Size = new Size(36, 15);
+            label11.TabIndex = 38;
+            label11.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(320, 174);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(309, 23);
+            txtEmail.TabIndex = 37;
+            // 
             // User_Profile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -588,5 +610,7 @@
         private Button button1;
         private Button btnAll;
         private Label lbl_lastn;
+        private Label label11;
+        private TextBox txtEmail;
     }
 }

@@ -102,7 +102,7 @@
             lblpanel.Dock = DockStyle.Top;
             lblpanel.Location = new Point(0, 0);
             lblpanel.Name = "lblpanel";
-            lblpanel.Size = new Size(665, 53);
+            lblpanel.Size = new Size(668, 53);
             lblpanel.TabIndex = 15;
             // 
             // pictureBox1
@@ -119,7 +119,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(3232, 22);
+            label3.Location = new Point(3235, 22);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 3;
@@ -130,7 +130,7 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3576, 20);
+            label2.Location = new Point(3579, 20);
             label2.Name = "label2";
             label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
@@ -186,6 +186,7 @@
             btnExit.Text = "➜]Exit ";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // btnLogout
             // 
@@ -201,6 +202,7 @@
             btnLogout.Text = "➜]Logout";
             btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // panel1
             // 
@@ -616,7 +618,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(665, 487);
+            ClientSize = new Size(668, 487);
             Controls.Add(UpdateItem);
             Controls.Add(AddItem);
             Controls.Add(overview);
