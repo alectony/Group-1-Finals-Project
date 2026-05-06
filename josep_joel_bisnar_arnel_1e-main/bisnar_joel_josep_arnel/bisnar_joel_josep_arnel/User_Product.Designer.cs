@@ -343,6 +343,7 @@
             btnMyprofile.Text = "👤My Profile";
             btnMyprofile.TextAlign = ContentAlignment.MiddleLeft;
             btnMyprofile.UseVisualStyleBackColor = false;
+            btnMyprofile.Click += btnMyprofile_Click;
             // 
             // btnProducts
             // 
@@ -373,6 +374,7 @@
             btnMyorders.Text = "🚚My Orders";
             btnMyorders.TextAlign = ContentAlignment.MiddleLeft;
             btnMyorders.UseVisualStyleBackColor = false;
+            btnMyorders.Click += btnMyorders_Click;
             // 
             // btnDashboard
             // 
@@ -388,6 +390,7 @@
             btnDashboard.Text = "📊 Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // User_Product
             // 

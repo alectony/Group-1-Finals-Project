@@ -232,6 +232,7 @@
             btnMyorders.Text = "📊 Dashboard";
             btnMyorders.TextAlign = ContentAlignment.MiddleLeft;
             btnMyorders.UseVisualStyleBackColor = false;
+            btnMyorders.Click += btnMyorders_Click;
             // 
             // btnDashboard
             // 

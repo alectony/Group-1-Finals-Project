@@ -54,9 +54,9 @@ namespace bisnar_joel_josep_arnel
             {
                 MessageBox.Show("Error loading pending orders: " + ex.Message);
             }
-            finally 
+            finally
             {
-                db.Close(); 
+                db.Close();
             }
         }
 
@@ -317,6 +317,13 @@ namespace bisnar_joel_josep_arnel
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMyorders_Click(object sender, EventArgs e)
+        {
+            admin_dashboard page = new admin_dashboard();
+            page.Show();
+            this.Hide();
         }
     }
 }
