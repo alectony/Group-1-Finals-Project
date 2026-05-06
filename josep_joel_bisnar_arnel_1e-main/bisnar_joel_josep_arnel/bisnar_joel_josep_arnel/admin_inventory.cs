@@ -66,8 +66,7 @@ namespace bisnar_joel_josep_arnel
             try
             {
                 db.Open();
-                string query = "SELECT product_name, product_price, quantity FROM products WHERE product_id = @pid";
-
+                string query = "SELECT product_name, product_price, quantity, product_image FROM products WHERE product_id = @pid";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@pid", productId);
@@ -78,6 +77,7 @@ namespace bisnar_joel_josep_arnel
                             txtUpdateName.Text = reader["product_name"].ToString();
                             txtUpdatePrice.Text = reader["product_price"].ToString();
                             txtUpdateQty.Text = reader["quantity"].ToString();
+                            textBox2.Text = reader["product_image"].ToString();
                         }
                         else
                         {
@@ -99,9 +99,9 @@ namespace bisnar_joel_josep_arnel
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            overview.Location = new Point(131, 59);
-            AddItem.Location = new Point(700, 60);
-            UpdateItem.Location = new Point(700, 60);
+            overview.Location = new Point(212, 59);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(1100, 60);
             btnOverview.ForeColor = Color.FromArgb(212, 175, 55);
             btnAddItem.ForeColor = Color.Green;
             btnUpdateItem.ForeColor = Color.Green;
@@ -130,9 +130,9 @@ namespace bisnar_joel_josep_arnel
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            overview.Location = new Point(700, 60);
-            AddItem.Location = new Point(131, 59);
-            UpdateItem.Location = new Point(700, 60);
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(212, 59);
+            UpdateItem.Location = new Point(1100, 60);
             btnOverview.ForeColor = Color.Green;
             btnAddItem.ForeColor = Color.FromArgb(212, 175, 55);
             btnUpdateItem.ForeColor = Color.Green;
@@ -140,9 +140,9 @@ namespace bisnar_joel_josep_arnel
 
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
-            overview.Location = new Point(700, 60);
-            AddItem.Location = new Point(700, 60);
-            UpdateItem.Location = new Point(131, 59);
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(212, 59);
             btnOverview.ForeColor = Color.Green;
             btnAddItem.ForeColor = Color.Green;
             btnUpdateItem.ForeColor = Color.FromArgb(212, 175, 55);
@@ -160,7 +160,6 @@ namespace bisnar_joel_josep_arnel
         private void ClearAddFields()
         {
             txtpn.Clear();
-            txtskunum.Clear();
             txtprice.Clear();
             txtqty.Clear();
         }
@@ -169,14 +168,11 @@ namespace bisnar_joel_josep_arnel
         {
 
             string pname = txtpn.Text.Trim();
+            string pimage = textBox1.Text.Trim();
+
             if (!decimal.TryParse(txtprice.Text, out decimal price) || !int.TryParse(txtqty.Text, out int qty))
             {
                 MessageBox.Show("Please enter valid numbers for Price and Quantity.");
-                return;
-            }
-            if (string.IsNullOrEmpty(pname))
-            {
-                MessageBox.Show("Product Name is required.");
                 return;
             }
 
@@ -184,19 +180,18 @@ namespace bisnar_joel_josep_arnel
             try
             {
                 db.Open();
-                string query = "INSERT INTO products (product_name, product_price, quantity) VALUES (@name, @price, @qty)";
+                string query = "INSERT INTO products (product_name, product_price, quantity, product_image) VALUES (@name, @price, @qty, @img)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", pname);
                     cmd.Parameters.AddWithValue("@price", price);
                     cmd.Parameters.AddWithValue("@qty", qty);
+                    cmd.Parameters.AddWithValue("@img", pimage);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Product added to inventory successfully!");
-
+                    MessageBox.Show("Product added successfully!");
                     ClearAddFields();
-
                     LoadProducts();
                 }
             }
@@ -208,34 +203,36 @@ namespace bisnar_joel_josep_arnel
             {
                 db.Close();
             }
-
         }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             txtUpdateName.Enabled = true;
             txtUpdatePrice.Enabled = true;
             txtUpdateQty.Enabled = true;
-            txtUpdateSKU.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             int pid = (int)numericUpDown1.Value;
+            string pimage = textBox2.Text;
 
             DBConnect db = new DBConnect();
             try
             {
                 db.Open();
-                string query = "UPDATE products SET product_name=@name, product_price=@price, quantity=@qty WHERE product_id=@pid";
+                string query = "UPDATE products SET product_name=@name, product_price=@price, quantity=@qty, product_image=@img WHERE product_id=@pid";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", txtUpdateName.Text);
                     cmd.Parameters.AddWithValue("@price", decimal.Parse(txtUpdatePrice.Text));
                     cmd.Parameters.AddWithValue("@qty", int.Parse(txtUpdateQty.Text));
+                    cmd.Parameters.AddWithValue("@img", pimage);
                     cmd.Parameters.AddWithValue("@pid", pid);
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Product updated successfully!");
                     LoadProducts();
@@ -263,7 +260,6 @@ namespace bisnar_joel_josep_arnel
             else
             {
                 txtUpdateName.Clear();
-                txtUpdateSKU.Clear();
                 txtUpdatePrice.Clear();
                 txtUpdateQty.Clear();
             }
@@ -293,6 +289,85 @@ namespace bisnar_joel_josep_arnel
             if (result == DialogResult.No)
             {
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(212, 59);
+            UpdateItem.Location = new Point(1100, 60);
+            btnOverview.ForeColor = Color.Green;
+            btnAddItem.ForeColor = Color.FromArgb(212, 175, 55);
+            btnUpdateItem.ForeColor = Color.Green;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(212, 59);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(1100, 60);
+            btnOverview.ForeColor = Color.FromArgb(212, 175, 55);
+            btnAddItem.ForeColor = Color.Green;
+            btnUpdateItem.ForeColor = Color.Green;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(212, 59);
+            btnOverview.ForeColor = Color.Green;
+            btnAddItem.ForeColor = Color.Green;
+            btnUpdateItem.ForeColor = Color.FromArgb(212, 175, 55);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(212, 59);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(1100, 60);
+            btnOverview.ForeColor = Color.FromArgb(212, 175, 55);
+            btnAddItem.ForeColor = Color.Green;
+            btnUpdateItem.ForeColor = Color.Green;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(1100, 60);
+            UpdateItem.Location = new Point(212, 59);
+            btnOverview.ForeColor = Color.Green;
+            btnAddItem.ForeColor = Color.Green;
+            btnUpdateItem.ForeColor = Color.FromArgb(212, 175, 55);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            overview.Location = new Point(1100, 60);
+            AddItem.Location = new Point(212, 59);
+            UpdateItem.Location = new Point(1100, 60);
+            btnOverview.ForeColor = Color.Green;
+            btnAddItem.ForeColor = Color.FromArgb(212, 175, 55);
+            btnUpdateItem.ForeColor = Color.Green;
+        }
+
+        private void btnDashboard_Click_1(object sender, EventArgs e)
+        {
+            admin_orderOrd form = new admin_orderOrd();
+            form.Show();
+            this.Hide();
+        }
+
+
+
+        private void btnMyorders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void admin_inventory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -39,7 +39,6 @@
             btnExit = new Button();
             btnLogout = new Button();
             panel1 = new Panel();
-            btnMyprofile = new Button();
             btnProducts = new Button();
             btnMyorders = new Button();
             btnDashboard = new Button();
@@ -195,7 +194,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 28, 60);
-            panel1.Controls.Add(btnMyprofile);
             panel1.Controls.Add(btnProducts);
             panel1.Controls.Add(btnMyorders);
             panel1.Controls.Add(btnDashboard);
@@ -203,21 +201,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(208, 350);
             panel1.TabIndex = 5;
-            // 
-            // btnMyprofile
-            // 
-            btnMyprofile.BackColor = Color.Transparent;
-            btnMyprofile.FlatStyle = FlatStyle.Flat;
-            btnMyprofile.Font = new Font("Segoe UI", 11F);
-            btnMyprofile.ForeColor = Color.Green;
-            btnMyprofile.Location = new Point(0, 166);
-            btnMyprofile.Name = "btnMyprofile";
-            btnMyprofile.Padding = new Padding(10, 0, 0, 0);
-            btnMyprofile.Size = new Size(208, 30);
-            btnMyprofile.TabIndex = 3;
-            btnMyprofile.Text = "👤My Profile";
-            btnMyprofile.TextAlign = ContentAlignment.MiddleLeft;
-            btnMyprofile.UseVisualStyleBackColor = false;
             // 
             // btnProducts
             // 
@@ -230,9 +213,10 @@
             btnProducts.Padding = new Padding(10, 0, 0, 0);
             btnProducts.Size = new Size(208, 30);
             btnProducts.TabIndex = 2;
-            btnProducts.Text = "🛍️Products";
+            btnProducts.Text = "📦 Inventory";
             btnProducts.TextAlign = ContentAlignment.MiddleLeft;
             btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnMyorders
             // 
@@ -240,12 +224,12 @@
             btnMyorders.FlatStyle = FlatStyle.Flat;
             btnMyorders.Font = new Font("Segoe UI", 11F);
             btnMyorders.ForeColor = Color.Green;
-            btnMyorders.Location = new Point(0, 72);
+            btnMyorders.Location = new Point(0, 24);
             btnMyorders.Name = "btnMyorders";
             btnMyorders.Padding = new Padding(10, 0, 0, 0);
             btnMyorders.Size = new Size(208, 30);
             btnMyorders.TabIndex = 1;
-            btnMyorders.Text = "🚚My Orders";
+            btnMyorders.Text = "📊 Dashboard";
             btnMyorders.TextAlign = ContentAlignment.MiddleLeft;
             btnMyorders.UseVisualStyleBackColor = false;
             // 
@@ -255,14 +239,15 @@
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI", 11F);
             btnDashboard.ForeColor = Color.FromArgb(212, 175, 55);
-            btnDashboard.Location = new Point(0, 27);
+            btnDashboard.Location = new Point(0, 72);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Padding = new Padding(10, 0, 0, 0);
             btnDashboard.Size = new Size(208, 30);
             btnDashboard.TabIndex = 0;
-            btnDashboard.Text = "📊 Dashboard";
+            btnDashboard.Text = "🚚 Orders";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // org
             // 
@@ -530,8 +515,6 @@
         private Button btnExit;
         private Button btnLogout;
         private Panel panel1;
-        private Button btnMyprofile;
-        private Button btnProducts;
         private Button btnMyorders;
         private Button btnDashboard;
         private Panel org;
@@ -558,5 +541,6 @@
         private Label label6;
         private DataGridView dgvPend;
         private Button btnSend;
+        private Button btnProducts;
     }
 }

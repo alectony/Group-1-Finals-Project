@@ -54,7 +54,10 @@ namespace bisnar_joel_josep_arnel
             {
                 MessageBox.Show("Error loading pending orders: " + ex.Message);
             }
-            finally { db.Close(); }
+            finally 
+            {
+                db.Close(); 
+            }
         }
 
         private void LoadCompletedOrders()
@@ -286,8 +289,8 @@ namespace bisnar_joel_josep_arnel
                 }
                 MessageBox.Show("Email sent and order cancelled successfully!");
                 richTextBox1.Clear();
-                org.Location = new Point(207, 53); 
-                message.Location = new Point(1000, 60); 
+                org.Location = new Point(207, 53);
+                message.Location = new Point(1000, 60);
                 LoadPendingOrders();
             }
             catch (Exception ex)
@@ -295,6 +298,25 @@ namespace bisnar_joel_josep_arnel
                 MessageBox.Show("Something went wrong: " + ex.Message);
             }
             finally { db.Close(); }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            admin_orderOrd form = new admin_orderOrd();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            admin_inventory form = new admin_inventory();
+            form.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
