@@ -111,7 +111,7 @@
             lblpanel.Dock = DockStyle.Top;
             lblpanel.Location = new Point(0, 0);
             lblpanel.Name = "lblpanel";
-            lblpanel.Size = new Size(851, 53);
+            lblpanel.Size = new Size(853, 53);
             lblpanel.TabIndex = 15;
             // 
             // pictureBox1
@@ -128,7 +128,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(3418, 22);
+            label3.Location = new Point(3420, 22);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 3;
@@ -139,7 +139,7 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3762, 20);
+            label2.Location = new Point(3764, 20);
             label2.Name = "label2";
             label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
@@ -778,7 +778,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(851, 479);
+            ClientSize = new Size(853, 479);
             Controls.Add(UpdateItem);
             Controls.Add(AddItem);
             Controls.Add(lblpanel);

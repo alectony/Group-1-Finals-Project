@@ -362,7 +362,9 @@ namespace bisnar_joel_josep_arnel
 
         private void btnMyorders_Click(object sender, EventArgs e)
         {
-
+            admin_dashboard form = new admin_dashboard();
+            form.Show();
+            this.Hide();
         }
 
         private void admin_inventory_Load(object sender, EventArgs e)

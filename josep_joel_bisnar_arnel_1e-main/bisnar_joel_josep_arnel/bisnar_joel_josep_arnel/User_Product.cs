@@ -87,7 +87,7 @@ namespace bisnar_joel_josep_arnel
             pb.Location = new Point(10, 10);
             pb.SizeMode = PictureBoxSizeMode.Zoom;
 
-         
+
             string path = Path.Combine(Application.StartupPath, "product_images", imageName);
 
             if (File.Exists(path))
@@ -117,7 +117,7 @@ namespace bisnar_joel_josep_arnel
             pnl.Controls.Add(btnAdd);
             flproducts.Controls.Add(pnl);
         }
-        
+
 
         public void AddToCart(int productId, string itemName, int price)
         {
@@ -176,7 +176,7 @@ namespace bisnar_joel_josep_arnel
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
+
             if (listNotifications.Items.Count == 0)
             {
                 MessageBox.Show("Your cart is empty!");
@@ -224,6 +224,27 @@ namespace bisnar_joel_josep_arnel
             catch (Exception ex) { MessageBox.Show("Database error: " + ex.Message); }
             finally { db.Close(); }
         }
+
+        private void btnMyprofile_Click(object sender, EventArgs e)
+        {
+            User_Profile page = new User_Profile(userId);
+            page.Show();
+            this.Hide();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            User_Dashboard page = new User_Dashboard(userId);
+            page.Show();
+            this.Hide();
+        }
+
+        private void btnMyorders_Click(object sender, EventArgs e)
+        {
+            User_MyOrders page = new User_MyOrders(userId);
+            page.Show();
+            this.Hide();    
+        }
     }
-    
+
 }
