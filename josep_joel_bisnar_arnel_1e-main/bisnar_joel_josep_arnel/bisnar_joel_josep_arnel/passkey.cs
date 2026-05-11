@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Numerics;
 
 namespace bisnar_joel_josep_arnel
 {
@@ -184,24 +185,33 @@ namespace bisnar_joel_josep_arnel
 
                 if (key == dbPasskey)
                 {
-                    string query1 = "INSERT INTO user_info (first_name, last_name, address) VALUES (@first_name, @last_name, @address)";
                     string query2 = "INSERT INTO clients (user_name, password, role) VALUES (@user_name, @password, @role)";
-
-                    using (MySqlCommand cmd1 = new MySqlCommand(query1, db.Connection))
-                    {
-                        cmd1.Parameters.AddWithValue("@first_name", (object)firstname ?? DBNull.Value);
-                        cmd1.Parameters.AddWithValue("@last_name", (object)lastname ?? DBNull.Value);
-                        cmd1.Parameters.AddWithValue("@address", (object)address ?? DBNull.Value);
-                        cmd1.ExecuteNonQuery();
-                    }
-
                     using (MySqlCommand cmd2 = new MySqlCommand(query2, db.Connection))
                     {
                         cmd2.Parameters.AddWithValue("@user_name", (object)username ?? DBNull.Value);
                         cmd2.Parameters.AddWithValue("@password", (object)password ?? DBNull.Value);
                         cmd2.Parameters.AddWithValue("@role", role);
                         cmd2.ExecuteNonQuery();
+                        long newUserId = cmd2.LastInsertedId;
+
+                        string query1 = "INSERT INTO user_info (user_id, first_name, last_name, address) VALUES (@user_id, @first_name, @last_name, @address)";
+
+
+
+                        using (MySqlCommand cmd1 = new MySqlCommand(query1, db.Connection))
+                        {
+                            cmd1.Parameters.AddWithValue("@user_id", newUserId);
+                            cmd1.Parameters.AddWithValue("@first_name", firstname);
+                            cmd1.Parameters.AddWithValue("@last_name", lastname );
+                            cmd1.Parameters.AddWithValue("@address", address);
+                            cmd1.ExecuteNonQuery();
+                        }
+
                     }
+
+
+
+
 
                     MessageBox.Show("Registered Successfully!");
                     new form1().Show();
