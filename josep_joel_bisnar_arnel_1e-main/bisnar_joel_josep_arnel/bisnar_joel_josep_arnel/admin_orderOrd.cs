@@ -175,8 +175,11 @@ namespace bisnar_joel_josep_arnel
                     int quantity = 0;
                     int userId = 0;
                     decimal total = 0;
+                    string userEmail = "";
+                    string itemName = "";
 
                     string detailQuery = "SELECT product_id, quantity, user_id, total FROM user_orders WHERE order_id = @oid";
+                    string beachQuery = @"SELECT ui.email, uo.item FROM user_orders uo INNER JOIN clients c ON uo.user_id = c.user_id INNER JOIN user_info ui ON c.user_id = ui.user_id WHERE uo.order_id = @oid";
                     using (MySqlCommand cmdDetail = new MySqlCommand(detailQuery, db.Connection, trans))
                     {
                         cmdDetail.Parameters.AddWithValue("@oid", selectedOrderId);
@@ -191,13 +194,36 @@ namespace bisnar_joel_josep_arnel
                             }
                         }
                     }
-
+                    using (MySqlCommand cmd = new MySqlCommand(beachQuery, db.Connection))
+                    {
+                        cmd.Parameters.AddWithValue("@oid", selectedOrderId);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                userEmail = reader["email"].ToString();
+                                itemName = reader["item"].ToString();
+                            }
+                        }
+                    }
+                    MailMessage mail = new MailMessage();
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                    mail.From = new MailAddress("anthonyjohnbisnar@gmail.com", "Grab n Go Admin");
+                    mail.To.Add(userEmail);
+                    mail.Subject = "Order Completed: " + itemName;
+                    mail.Body = $"Hi! Your order for {itemName} was Completed.\n\n";
+                    smtp.Port = 587;
+                    smtp.Credentials = new NetworkCredential("anthonyjohnbisnar@gmail.com", "dhkkktkqznulwbvv");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
                     string updateStatus = "UPDATE user_orders SET status = 'Completed' WHERE order_id = @oid";
                     using (MySqlCommand cmdStatus = new MySqlCommand(updateStatus, db.Connection, trans))
                     {
                         cmdStatus.Parameters.AddWithValue("@oid", selectedOrderId);
                         cmdStatus.ExecuteNonQuery();
                     }
+                    MessageBox.Show("Email sent and order Completed successfully and stock updated!");
+                    LoadPendingOrders();
 
                     string updateStock = "UPDATE products SET quantity = quantity - @qty WHERE product_id = @pid";
                     using (MySqlCommand cmdStock = new MySqlCommand(updateStock, db.Connection, trans))
@@ -207,9 +233,7 @@ namespace bisnar_joel_josep_arnel
                         cmdStock.ExecuteNonQuery();
                     }
 
-                    string updateTrans = @"UPDATE transactions 
-                                 SET user_penoders = user_penoders - 1 
-                                 WHERE user_id = @uid";
+                    string updateTrans = @"UPDATE transactions SET user_penoders = user_penoders - 1 WHERE user_id = @uid";
                     using (MySqlCommand cmdTrans = new MySqlCommand(updateTrans, db.Connection, trans))
                     {
                         cmdTrans.Parameters.AddWithValue("@uid", userId);
@@ -217,7 +241,6 @@ namespace bisnar_joel_josep_arnel
                     }
 
                     trans.Commit();
-                    MessageBox.Show("Order processed and stock updated!");
                     LoadPendingOrders();
                     LoadCompletedOrders();
                 }
@@ -254,11 +277,7 @@ namespace bisnar_joel_josep_arnel
                 db.Open();
                 string userEmail = "";
                 string itemName = "";
-                string query = @"SELECT ui.email, uo.item 
-                 FROM user_orders uo 
-                 INNER JOIN clients c ON uo.user_id = c.user_id 
-                 INNER JOIN user_info ui ON c.user_id = ui.user_id 
-                 WHERE uo.order_id = @oid";
+                string query = @"SELECT ui.email, uo.item FROM user_orders uo INNER JOIN clients c ON uo.user_id = c.user_id INNER JOIN user_info ui ON c.user_id = ui.user_id WHERE uo.order_id = @oid";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@oid", selectedOrderId);
@@ -297,7 +316,10 @@ namespace bisnar_joel_josep_arnel
             {
                 MessageBox.Show("Something went wrong: " + ex.Message);
             }
-            finally { db.Close(); }
+            finally 
+            { 
+                db.Close(); 
+            }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
