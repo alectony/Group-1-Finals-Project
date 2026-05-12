@@ -29,6 +29,8 @@ namespace bisnar_joel_josep_arnel
             btnExit.FlatAppearance.BorderSize = 0;
             /*LoadUserData();*/
             DBConnect db = new DBConnect();
+
+            
             try
             {
                 string fname = "";
@@ -52,6 +54,19 @@ namespace bisnar_joel_josep_arnel
                         else
                         {
                             MessageBox.Show("No matching profile found!");
+                        }
+                    }
+                }
+                string queryb = "SELECT email FROM user_info WHERE user_id = @user_id";
+                
+                using (MySqlCommand cmdb = new MySqlCommand(queryb, db.Connection))
+                {
+                    cmdb.Parameters.AddWithValue("@user_id", userId);
+                    using (MySqlDataReader reader = cmdb.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            txtEmail.Text = reader["email"]?.ToString();
                         }
                     }
                 }
@@ -112,7 +127,17 @@ namespace bisnar_joel_josep_arnel
                         }
                     }
                 }
+
+
+
+
+
             }
+
+
+
+
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
