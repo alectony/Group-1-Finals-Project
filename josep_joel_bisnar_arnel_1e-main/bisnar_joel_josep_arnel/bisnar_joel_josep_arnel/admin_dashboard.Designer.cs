@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admin_dashboard));
             org = new Panel();
+            dataGridView1 = new DataGridView();
             panel7 = new Panel();
             label4 = new Label();
             panel6 = new Panel();
@@ -57,8 +58,8 @@
             btnProducts = new Button();
             btnMyorders = new Button();
             btnDashboard = new Button();
-            dataGridView1 = new DataGridView();
             org.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -67,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // org
@@ -83,6 +83,15 @@
             org.Name = "org";
             org.Size = new Size(664, 433);
             org.TabIndex = 12;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(17, 153);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(629, 261);
+            dataGridView1.TabIndex = 21;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel7
             // 
@@ -146,7 +155,7 @@
             label9.ForeColor = Color.Gray;
             label9.Location = new Point(21, 14);
             label9.Name = "label9";
-            label9.Size = new Size(71, 13);
+            label9.Size = new Size(70, 13);
             label9.TabIndex = 11;
             label9.Text = "Transactions";
             // 
@@ -241,7 +250,7 @@
             label7.ForeColor = Color.Gray;
             label7.Location = new Point(10, 14);
             label7.Name = "label7";
-            label7.Size = new Size(61, 13);
+            label7.Size = new Size(60, 13);
             label7.TabIndex = 9;
             label7.Text = "Total Sales";
             // 
@@ -416,15 +425,6 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 153);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(629, 261);
-            dataGridView1.TabIndex = 21;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
             // admin_dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -435,8 +435,10 @@
             Controls.Add(panel1);
             Controls.Add(panel3);
             Name = "admin_dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "admin_dashboard";
             org.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panel6.ResumeLayout(false);
@@ -450,7 +452,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 

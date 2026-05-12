@@ -482,7 +482,7 @@
             Controls.Add(panel1);
             Name = "admin_orderOrd";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "admin_orderOrd";
+            Text = " ";
             lblpanel.ResumeLayout(false);
             lblpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

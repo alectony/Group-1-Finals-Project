@@ -275,7 +275,7 @@
             button1.Text = "+ Add Emplyoee";
             button1.UseVisualStyleBackColor = false;
             // 
-            // Employees
+            // admin_employees
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -286,7 +286,8 @@
             Controls.Add(panel3);
             Controls.Add(lblpanel);
             Controls.Add(panel1);
-            Name = "Employees";
+            Name = "admin_employees";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Employees";
             panel1.ResumeLayout(false);
             lblpanel.ResumeLayout(false);

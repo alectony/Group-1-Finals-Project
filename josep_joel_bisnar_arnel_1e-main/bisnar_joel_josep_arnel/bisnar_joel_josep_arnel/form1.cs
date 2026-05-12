@@ -64,7 +64,7 @@ namespace bisnar_joel_josep_arnel
                     {
                         MessageBox.Show("Welcome admin.");
 
-                        admin_orderOrd form = new admin_orderOrd();
+                        admin_dashboard form = new admin_dashboard();
                         form.Show();
                         this.Hide();
                     }
